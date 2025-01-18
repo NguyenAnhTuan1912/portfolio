@@ -1,0 +1,20 @@
+[
+  {
+    "id": "blogs-01",
+    "name": "",
+    "topics": [],
+    "content": "",
+    "language": "vi",
+    "readtime": 0,
+    "createdAt": 0
+  },
+  {
+    "id": "blogs-02",
+    "name": "",
+    "topics": [],
+    "content": "",
+    "language": "en",
+    "readtime": 0,
+    "createdAt": 0
+  }
+]

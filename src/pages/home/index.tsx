@@ -1,7 +1,19 @@
+import { ChevronsRight } from "lucide-react";
+
+// Import components
+import TechstackShowcase from "src/components/techstack-showcase";
+import ProjectsShowcase from "src/components/projects-showcase";
+import BlogsShowcase from "src/components/blogs-showcase";
+
+// Import states
+import { useSettingsState } from "src/states/settings";
+
 // Import styles
 import "./index.css";
 
 export default function HomePage() {
+  const { theme } = useSettingsState();
+
   return (
     <section className="flex flex-1 flex-col">
       <div className="flex h-[calc(100dvh-52px)] items-center m-auto">
@@ -11,31 +23,56 @@ export default function HomePage() {
           fullstack + cloud developer
         </p>
         <div className="relative w-[360px] aspect-square">
-          <img className="absolute artwork-svg" src="/svg/temple_body-01.svg" />
-          <img className="absolute artwork-svg" src="/svg/temple_head-01.svg" />
+          <img
+            className="absolute artwork-svg z-10"
+            src={`/svg/temple_body-${theme}-01.svg`}
+          />
+          <img
+            className="absolute artwork-svg z-10"
+            src={`/svg/temple_head-${theme}-01.svg`}
+          />
           <div className="artwork_effect w-full flex justify-center">
             <span className="dot--animate absolute"></span>
             <span className="dot absolute"></span>
           </div>
+          <div className="absolute w-[150%] h-[2px] bg-primary/30 top-1/2 -left-1/4 rotate-[30deg]"></div>
+          <div className="absolute w-[150%] h-[2px] bg-primary/30 top-1/2 -left-1/4 rotate-90"></div>
+          <div className="absolute w-[150%] h-[2px] bg-primary/30 top-1/2 -left-1/4 -rotate-[30deg]"></div>
         </div>
       </div>
-      <div className="flex h-[100dvh]">
-        <div className="flex flex-col items-center w-full">
+      <div className="w-full mt-6">
+        <div className="w-full h-2 bg-primary"></div>
+        <img src={`/svg/pagebreak-${theme}.svg`} />
+        <div className="w-full h-2 bg-primary"></div>
+      </div>
+      <div className="flex flex-col">
+        <div className="relative flex flex-col items-center w-full py-3 border-b border-primary">
           <h2 className="font-bold text-2xl">Techstack</h2>
           <p>What i knew</p>
         </div>
+        <div className="w-full my-4">
+          <TechstackShowcase />
+        </div>
       </div>
-      <div className="flex h-[100dvh]">
-        <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col">
+        <div className="relative flex flex-col items-center w-full py-3 border-b border-primary">
           <h2 className="font-bold text-2xl">Projects</h2>
           <p>What i did</p>
         </div>
-        <div></div>
+        <div className="w-full my-4">
+          <ProjectsShowcase />
+        </div>
+        <div className="w-full">
+          <p className="text-center underline cursor-pointer">View more</p>
+        </div>
       </div>
-      <div className="flex h-[100dvh]">
-        <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col">
+        <div className="relative flex flex-col items-center w-full py-3 border-b border-primary">
           <h2 className="font-bold text-2xl">Blogs</h2>
           <p>What i wrote</p>
+        </div>
+        <div className="w-full my-4">
+          <BlogsShowcase />
         </div>
       </div>
     </section>

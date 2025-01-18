@@ -1,0 +1,269 @@
+[
+  {
+    "id": "projects-01",
+    "name": "Quizz App",
+    "type": "application",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-01" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-01" }, { "id": "lnf-02" }]
+      },
+      {
+        "name": "Others",
+        "value": "others",
+        "data": [{ "id": "others-09" }]
+      }
+    ],
+    "description": {
+      "short": "Let's do some quizzes.",
+      "long": "This is my first project. I use Javascript, Express and Firebase. This is the first time I have known about API.\nBecause of this is my personal project, I build entire the app. UI have 4 pages:\n\n- Intro page: introduce something about me.\n- Home page: show some types of quizzes. Use can pick a quiz and do it.\n- Quiz page: users will do quiz here, each quiz will has 4 questions. And they must complete the quiz before the time.\n- Result and Anwser Page: when users complete the quiz, they submit and receive points in Point Page. Beside, they can view answers.\n\nFirst milestone in Front End Developer."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742024/portfolio/works/images/azy19jemqztmvexbrwat.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/xlz1qzhrqu6e4hfsvgzz.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742026/portfolio/works/images/itblij1iwppumrjprhna.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/c7utgixlqfxb8zszsvbn.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/mlue48b5ftgcwowc6qnh.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/qhbmanmvu8vvwuueeznj.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/qzti86mq6pcnnw1l2y9u.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/bwbapo8rz7mkzsvqaa9d.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691742027/portfolio/works/images/uf6umyu6kqzb1xinim6u.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Github",
+        "value": "https://github.com/NguyenAnhTuan1912/quiz-app"
+      },
+      {
+        "id": "links-02",
+        "name": "Demo",
+        "value": "https://quiz-app-sqg1.onrender.com/"
+      }
+    ],
+    "startDate": 1658275200000,
+    "endDate": 1658188800000
+  },
+  {
+    "id": "projects-02",
+    "name": "Chat App",
+    "type": "application",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-02" }, { "id": "lang-05" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-08" }, { "id": "lnf-09" }]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-02" }]
+      }
+    ],
+    "description": {
+      "short": "User can send message (texts, emojis, images and images) to other users (can be user-user or user-group).",
+      "long": "This is my first team project, learn about reactive programming and real-time.\n\nWe use Angular (with Typescript), C#, ASP.NET and SQL. Beside, we use signalr to manage realtime and RxJS to program reactively and for states.\n\nFeatures:\n\n- Send messages, files (media and document) to a user or to a group.\n- Create a group; add/remove user to/from a group.\n- Change color of chat.\n- Video call (user-user).\n- Add/remove friends.\n- Receive notifications when user is added to a group, receive a friend request.\n- Manage profile, settings: user can change representation image, cover image; Turn on/off notification sound; switch theme (dark and light).\n\nMy roles are:\n\n- Build almost the UI: the UI has 4 pages - Message; Notifications, Profile and Video Call (I don't take part in this page).\n- Build logic for messages, files sending.\n- Build logic for data storing in each chat session.\n- Build some message services for user-user and user-group (with SignalR and SQL).\n- Build notification logic. When user receives a friend request or is added to a group.\n- Build models likes: User, Message, Notification, FileInfo...\n\nI learn too much from this work. Yes, I like to be a Fullstack Developer (work with BE and FE)."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744343/portfolio/works/images/pzcrs2d5qcr4dzq2n3in.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/dytbpemnkdhegidyw5zt.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/pdj9zfekdo7whljs2p5i.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744347/portfolio/works/images/z5zecnx71muf2zngwpxm.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/etvopxpo8nrl3edtvczt.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/nedxs8csuetnyut83qbs.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/yatnweeuqtucadxx6idl.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/xlfhv3gynfya1yhg8dh4.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691744345/portfolio/works/images/agzsfn5rmdmytkcnsckb.jpg"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Azure",
+        "value": "https://dev.azure.com/DNTUProject/ChattingApp/_git/ChattingApp"
+      },
+      {
+        "id": "links-02",
+        "name": "Youtube",
+        "value": "https://www.youtube.com/watch?v=1v2V1h8EQdM&t=8s"
+      }
+    ],
+    "startDate": 1664582400000,
+    "endDate": 1671667200000
+  },
+  {
+    "id": "projects-03",
+    "name": "Dong Nai Itinerary",
+    "type": "application",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-02" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-01" }, { "id": "lnf-02" }, { "id": "lnf-03" }]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-01" }]
+      }
+    ],
+    "description": {
+      "short": "Users can create their plan about travel.",
+      "long": "This is my third team project. This project use GTP and other AI models.\n\nWe use React (with Typescript), Express (with Javascript) and MongoDB. Beside, we also use service from Open AI and other AI models.\n\nFeatures:\n\n- Basic authentication: sign-in, sign-up.\n- Create travel plan: users must fill information to form (has guides). Choose response language (support Vietnamees and English).\n- Save/delete/edit travel plan: users can save travel plan, and it will be store in the left of site. In here, user can delete or click in travel plan card to view details.\n\nMy role ares:\n\n- Build authentication logic in client app.\n- Build almost the UI: there is one main page and 2 authentication pages.\n- Build feature interactions for travel plan editing, saving and deleting.\n\nI learned new teamwork skills in this project."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745461/portfolio/works/images/nbmwtzkyzozmsczgq8sd.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745636/portfolio/works/images/rc8bolwmv934wp6zszni.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745634/portfolio/works/images/l6rqlkwjipttyztfqhbs.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745631/portfolio/works/images/sw9iljxkfmzbxgmx1dls.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745631/portfolio/works/images/azbulugn1uks2kc5ajrm.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745631/portfolio/works/images/tus8tvrlux43wmjmwhqo.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691745631/portfolio/works/images/epnzbwkgqliuty663mwm.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Github",
+        "value": "https://github.com/NekoCyan/DNTU-Research-Conference-2023"
+      },
+      {
+        "id": "links-02",
+        "name": "Youtube",
+        "value": "https://www.youtube.com/watch?v=r-W_ESVyocc"
+      }
+    ],
+    "startDate": 1681084800000,
+    "endDate": 1684972800000
+  },
+  {
+    "id": "projects-04",
+    "name": "Dong Nai Travel",
+    "type": "mobile-application",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-01" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [
+          { "id": "lnf-01" },
+          { "id": "lnf-02" },
+          { "id": "lnf-03" },
+          { "id": "lnf-04" }
+        ]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-01" }]
+      }
+    ],
+    "description": {
+      "short": "A traveling dictionary for everyone.",
+      "long": "This is my second team project. I and my teammates work more efficent than the previous project.\n\nWe use React, Express (with Javascript) and MongoDB. We also use GPT Model (support chat, use to help user create travel plan); Google, Cloud, Weather and other services.\n\nFeature:\n\n- Users can receive news about places, blogs, weather and notifications. They can create travel plan here.\n- Users can explore many places and read (or listen) place's detail; read reviews and view some related places.\n- Users can find route to destinations, implicitly search some places, view places' information.\n- Users can read and write a blog. Sharing about their think, experience for some places where they visit. Beside, use can comment on blogs or delete comment.\n- Users can manage their profile, view saved places and blogs, change theme.\n\nMy roles are:\n\n- Give an idea for UI and design almost screens in app.\n- Build some reusable components like Slider, Information Cards...\n- Build explore screen. There are some logics like lazy loading, view content by type...\n- Bulid blogs screen. I built my own markdown (It is named “markformat”) to show markdown text in blog details. Use socket to upload blog (can track uploading process).\n- Solve the \"audio support\" feature by split text into multiple parts, request audio for the first part to \"Text To Speech\" of Google API and got base64 data, write this data to temporary file and use \"Audio.Sound\" from expo-av to play audio.\n- Support other teammates in other features.\n- I also have a contribution in Back End. Refactor some code (model, service, controller), update some Objects and create new object.\n\nI know how to work more efficent in a team. And learn more about git and github."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747696/portfolio/works/images/xjorsjry3uduyog5iesd.jpg",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747699/portfolio/works/images/pqt3oxk2e3phmrqtecxn.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747705/portfolio/works/images/glv5n4ozrzgykhadahr0.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747699/portfolio/works/images/gzvxsl69fmpnsuficdcq.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747699/portfolio/works/images/he7njtnv0qxbbpdldrdp.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747703/portfolio/works/images/t4sdvflzqxvisgbbsley.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747700/portfolio/works/images/t1zhmngrqtwzfmyxqplo.jpg",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1691747699/portfolio/works/images/rkm7x9idarlniqpbnuai.jpg"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Github",
+        "value": "https://github.com/FromSunNews/DongNaiTravelApp"
+      },
+      {
+        "id": "links-02",
+        "name": "Github",
+        "value": "https://github.com/FromSunNews/DongNaiTravelAPI"
+      },
+      {
+        "id": "links-03",
+        "name": "Youtube",
+        "value": "https://www.youtube.com/watch?v=6lMZkIQiZ68"
+      }
+    ],
+    "startDate": 1677456000000,
+    "endDate": 1688601600000
+  },
+  {
+    "id": "projects-05",
+    "name": "Tuna Caro",
+    "type": "game",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-02" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-01" }, { "id": "lnf-02" }, { "id": "lnf-03" }]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-01" }]
+      }
+    ],
+    "description": {
+      "short": "Let's play caro.",
+      "long": "A portable caro game, players can play on smart phone or desktop. Support 2 players, online playing."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380290/portfolio/works/images/hyn2jhk63ztfefqkljzb.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/images/hrdlirb0ubw8znfqkhay.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/images/mzhfhjuycl36e8eqj8bz.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/images/jkhae9ekjx7pmgpn3w38.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/images/sjdupnwdyzbjzywoz7qb.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/images/wzkigwyjvamt6ndcfbke.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/images/bjqjohyymm5uxfnhit4t.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/images/u9e2admq8iaonudw6byd.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/images/xfxzvc5ftxao1wregh0n.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Github",
+        "value": "https://github.com/NguyenAnhTuan1912/tuna-caro"
+      },
+      {
+        "id": "links-02",
+        "name": "Youtube",
+        "value": "https://www.youtube.com/watch?v=jxk2Lq4HsVA"
+      },
+      {
+        "id": "links-03",
+        "name": "Demo",
+        "value": "https://tuna-caro.pages.dev"
+      }
+    ],
+    "startDate": 1696118400000,
+    "endDate": 1701388800000
+  }
+]

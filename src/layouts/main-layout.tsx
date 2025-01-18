@@ -7,7 +7,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="flex flex-col w-full h-screen">
+    <main className="relative flex flex-col w-full">
       <Header />
       {children}
     </main>
