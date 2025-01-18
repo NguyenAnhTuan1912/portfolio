@@ -1,9 +1,12 @@
-import { ChevronsRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // Import components
 import TechstackShowcase from "src/components/techstack-showcase";
 import ProjectsShowcase from "src/components/projects-showcase";
 import BlogsShowcase from "src/components/blogs-showcase";
+
+// Import routes metadata
+import { rootRoutesMetadata } from "src/routes/RootRoutes";
 
 // Import states
 import { useSettingsState } from "src/states/settings";
@@ -12,6 +15,7 @@ import { useSettingsState } from "src/states/settings";
 import "./index.css";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const { theme } = useSettingsState();
 
   return (
@@ -32,8 +36,8 @@ export default function HomePage() {
             src={`/svg/temple_head-${theme}-01.svg`}
           />
           <div className="artwork_effect w-full flex justify-center">
-            <span className="dot--animate absolute"></span>
-            <span className="dot absolute"></span>
+            <span className="dot--animate absolute z-20"></span>
+            <span className="dot absolute z-20"></span>
           </div>
           <div className="absolute w-[150%] h-[2px] bg-primary/30 top-1/2 -left-1/4 rotate-[30deg]"></div>
           <div className="absolute w-[150%] h-[2px] bg-primary/30 top-1/2 -left-1/4 rotate-90"></div>
@@ -63,7 +67,12 @@ export default function HomePage() {
           <ProjectsShowcase />
         </div>
         <div className="w-full">
-          <p className="text-center underline cursor-pointer">View more</p>
+          <p
+            onClick={() => navigate(rootRoutesMetadata.get("projects")!.path)}
+            className="text-center underline cursor-pointer"
+          >
+            View more
+          </p>
         </div>
       </div>
       <div className="flex flex-col">
@@ -73,6 +82,9 @@ export default function HomePage() {
         </div>
         <div className="w-full my-4">
           <BlogsShowcase />
+        </div>
+        <div className="w-full">
+          <p className="text-center underline cursor-pointer">View more</p>
         </div>
       </div>
     </section>

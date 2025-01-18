@@ -9,6 +9,7 @@ import HomePage from "src/pages/home";
 import ProjectsPage from "src/pages/projects";
 import BlogsPage from "src/pages/blogs";
 import ContactPage from "src/pages/contact";
+import ProjectDetailsPage from "src/pages/project-details";
 
 // Import utils
 // import { CookieUtils } from "src/utils/cookies";
@@ -75,6 +76,10 @@ const rootRoutes: Array<RouteObject> = [
       {
         path: rootRoutesMetadata.get("contact")?.path,
         element: <ContactPage />,
+      },
+      {
+        path: `${rootRoutesMetadata.get("projects")?.path}/:id`,
+        element: <ProjectDetailsPage />,
       },
       {
         path: "/home",

@@ -1,5 +1,5 @@
 // Import types
-import type { TechStackRefType } from "../techstacks/types";
+import type { TechStackType } from "../techstacks/types";
 
 export type ProjectDescriptionType = {
   short: string;
@@ -16,7 +16,7 @@ export type ProjectType = {
   id: string;
   name: string;
   type: string;
-  techStacks: Array<TechStackRefType>;
+  techStacks: Array<TechStackType>;
   description: ProjectDescriptionType;
   cover: string;
   images: Array<string>;

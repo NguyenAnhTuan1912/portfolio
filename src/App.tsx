@@ -20,6 +20,7 @@ function App() {
 
   // Fecth data
   React.useEffect(() => {
+    console.log("Request data");
     const getTechStacksPromise = import("src/assets/techstack/data.json");
     const getProjectsPromise = import("src/assets/projects/data.json");
 

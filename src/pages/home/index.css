@@ -2,8 +2,8 @@
 Hieu ung cho dinh ngoi den
 */
 .artwork_effect .dot--animate {
-  width: 12%;
-  height: 12%;
+  width: 20%;
+  height: 20%;
   border-radius: 50%;
   background-color: rgba(255, 251, 36, 0.7);
   -o-transform: scale(0);
@@ -15,11 +15,11 @@ Hieu ung cho dinh ngoi den
   -moz-animation: explode 1.4s infinite;
   -webkit-animation: explode 1.4s infinite;
   animation: explode 1.4s infinite;
-  top: -0.3%;
+  top: -3.5%;
 }
 .artwork_effect .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: #262626;
   background-color: rgba(255, 251, 36, 0.7);

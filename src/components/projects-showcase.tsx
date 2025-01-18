@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { MoveRight } from "lucide-react";
+
+// Import components
+import { Button } from "./ui/button";
 
 // Import objects
 import { ProjectUtils } from "src/objects/projects/utils";
+
+// Import routes metadata
+import { rootRoutesMetadata } from "src/routes/RootRoutes";
 
 // Import states
 import { useProjectsState } from "src/states/projects";
@@ -10,9 +17,16 @@ import { useProjectsState } from "src/states/projects";
 import type { ProjectType } from "src/objects/projects/types";
 
 function ProjectCard({ data }: { data: ProjectType }) {
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-[240px]">
-      <div className="border border-primary border-b-4 mb-3 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]">
+      <div
+        onClick={() =>
+          navigate(`${rootRoutesMetadata.get("projects")?.path}/${data.id}`)
+        }
+        className="border border-primary border-b-4 mb-3 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
+      >
         <img
           className="max-w-[240px] object-contain aspect-square object-center"
           src={data.cover}
@@ -32,7 +46,12 @@ function ProjectCard({ data }: { data: ProjectType }) {
       </div>
       <hr className="border-primary" />
       <div className="my-3">
-        <h2 className="font-semibold text-xl cursor-pointer hover:underline">
+        <h2
+          onClick={() =>
+            navigate(`${rootRoutesMetadata.get("projects")?.path}/${data.id}`)
+          }
+          className="font-semibold text-xl cursor-pointer hover:underline"
+        >
           {data.name}
         </h2>
         <p className="text-sm">{data.description.short}</p>
