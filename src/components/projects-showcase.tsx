@@ -1,8 +1,9 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MoveRight } from "lucide-react";
 
 // Import components
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 
 // Import objects
 import { ProjectUtils } from "src/objects/projects/utils";
@@ -20,15 +21,15 @@ function ProjectCard({ data }: { data: ProjectType }) {
   const navigate = useNavigate();
 
   return (
-    <div className="max-w-[240px]">
+    <div className="w-full">
       <div
         onClick={() =>
           navigate(`${rootRoutesMetadata.get("projects")?.path}/${data.id}`)
         }
-        className="border border-primary border-b-4 mb-3 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
+        className="bg-secondary border border-primary border-b-4 mb-3 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
       >
         <img
-          className="max-w-[240px] object-contain aspect-square object-center"
+          className="object-contain aspect-square object-center"
           src={data.cover}
         />
       </div>
@@ -76,20 +77,29 @@ function ProjectCard({ data }: { data: ProjectType }) {
   );
 }
 
-export default function ProjectsShowcase() {
+type ProjectsShowcaseProps = {
+  canShowAll?: boolean;
+};
+
+export default function ProjectsShowcase(props: ProjectsShowcaseProps) {
   const { projects } = useProjectsState();
+
+  const Projects = React.useMemo(() => {
+    const result: Array<any> = [];
+
+    if (!projects) return <p className="text-center">Loading...</p>;
+
+    const N = props.canShowAll ? projects?.length : 5;
+    for (let i = 0; i < N; i++) {
+      result.push(<ProjectCard key={projects[i].id} data={projects[i]} />);
+    }
+
+    return result;
+  }, [projects, props.canShowAll]);
 
   return (
     <div className="flex flex-1 max-w-[1280px] mx-auto py-3">
-      <div className="flex gap-6 mb-3">
-        {projects ? (
-          projects.map((project) => {
-            return <ProjectCard key={project.id} data={project} />;
-          })
-        ) : (
-          <p className="text-center">Loading...</p>
-        )}
-      </div>
+      <div className="grid grid-cols-3 gap-6 mb-3">{Projects}</div>
     </div>
   );
 }

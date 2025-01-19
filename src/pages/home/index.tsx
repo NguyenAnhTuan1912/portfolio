@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // Import components
 import TechstackShowcase from "src/components/techstack-showcase";
 import ProjectsShowcase from "src/components/projects-showcase";
-import BlogsShowcase from "src/components/blogs-showcase";
+import { BlogsShowcase } from "src/components/blogs-showcase";
 
 // Import routes metadata
 import { rootRoutesMetadata } from "src/routes/RootRoutes";
@@ -75,7 +75,7 @@ export default function HomePage() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mb-3">
         <div className="relative flex flex-col items-center w-full py-3 border-b border-primary">
           <h2 className="font-bold text-2xl">Blogs</h2>
           <p>What i wrote</p>

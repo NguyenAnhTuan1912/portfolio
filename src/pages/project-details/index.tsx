@@ -45,7 +45,7 @@ export default function ProjectDetailsPage() {
           onClick={() => navigate(-1)}
           className="flex items-center cursor-pointer hover:underline"
         >
-          <ArrowLeft className="me-3" size={16} /> Back to home
+          <ArrowLeft className="me-3" size={16} /> Back
         </p>
         <p>Viewing project details</p>
       </div>
