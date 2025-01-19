@@ -294,18 +294,17 @@
     ],
     "description": {
       "short": "A simple microservice application",
-      "long": "A portable caro game, players can play on smart phone or desktop. Support 2 players, online playing."
+      "long": "Task Manager helps you manage your tasks easier, faster and more convenient. You can view your tasks in **Board view** or **Table view**. With board view, you can easily **drag-and-drop** task card to update its status or modify separately information of task, it's on you!!\n\nThis application is special because this is the first time that I have applied micro-service architecture to build application, ReactJS, ExpressJS (NodeJS), MongoDB and MySQL. You can deploy it on your machine or cloud infrastructure with Docker Image."
     },
-    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380290/portfolio/works/tuna-caro/hyn2jhk63ztfefqkljzb.png",
+    "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257911/portfolio/works/task-manager/cover_vn92qg.png",
     "images": [
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/tuna-caro/hrdlirb0ubw8znfqkhay.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/tuna-caro/mzhfhjuycl36e8eqj8bz.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/tuna-caro/jkhae9ekjx7pmgpn3w38.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/tuna-caro/sjdupnwdyzbjzywoz7qb.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/tuna-caro/wzkigwyjvamt6ndcfbke.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/tuna-caro/bjqjohyymm5uxfnhit4t.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380291/portfolio/works/tuna-caro/u9e2admq8iaonudw6byd.png",
-      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1709380292/portfolio/works/tuna-caro/xfxzvc5ftxao1wregh0n.png"
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257910/portfolio/works/task-manager/2025-01-19_102409_skiovo.png",
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257912/portfolio/works/task-manager/2025-01-19_102438_ild6ss.png",
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257911/portfolio/works/task-manager/2025-01-19_102501_fbf0wq.png",
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257912/portfolio/works/task-manager/2025-01-19_102520_xnyr3c.png",
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257911/portfolio/works/task-manager/2025-01-19_102620_ibvzgq.png",
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257911/portfolio/works/task-manager/2025-01-19_102636_iwcrcv.png",
+      "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257911/portfolio/works/task-manager/2025-01-19_102657_qch4ta.png"
     ],
     "links": [
       {

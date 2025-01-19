@@ -75,7 +75,7 @@ const rootRoutes: Array<RouteObject> = [
         element: <BlogsPage />,
       },
       {
-        path: `${rootRoutesMetadata.get("blogs")?.path}/:id`,
+        path: `${rootRoutesMetadata.get("blogs")?.path}/:value`,
         element: <BlogDetailsPage />,
       },
       {

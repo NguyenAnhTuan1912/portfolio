@@ -1,7 +1,9 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import { ArrowLeft } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
+
+// Import components
+import MDContent from "src/components/markdown";
 
 // Import utils
 import { BlogUtils } from "src/objects/blogs/utils";
@@ -13,17 +15,25 @@ import { useBlogsState } from "src/states/blogs";
 // import type { BlogType } from "src/objects/blogs/types";
 
 export default function BlogDetailsPage() {
-  const { id } = useParams();
+  const { value } = useParams();
   const navigate = useNavigate();
-  const { blogs } = useBlogsState();
+  const { blogs, content, setBlogContent } = useBlogsState();
 
   const data = React.useMemo(() => {
-    return blogs?.find((project) => project.id === id)!;
-  }, [id, blogs?.length]);
+    return blogs?.find((blog) => blog.value === value)!;
+  }, [value, blogs?.length]);
 
   React.useEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, []);
+
+  React.useEffect(() => {
+    fetch(`/blogs/${value}.md`)
+      .then((r) => r.text())
+      .then((content) => {
+        setBlogContent(content);
+      });
+  }, [value]);
 
   if (!blogs) {
     return <p>Loading...</p>;
@@ -64,7 +74,9 @@ export default function BlogDetailsPage() {
         </div>
       </div>
       <hr className="my-3" />
-      <div className="content"></div>
+      <div className="content [&>p]:mb-3 [&>ul]:mb-3 [&>ol]:mb-3">
+        <MDContent>{content}</MDContent>
+      </div>
     </div>
   );
 }

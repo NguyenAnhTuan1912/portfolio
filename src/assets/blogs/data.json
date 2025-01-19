@@ -2,6 +2,7 @@
   {
     "id": "blogs-01",
     "name": "S3 Examples - Get object from S3 securely",
+    "value": "s3-examples-get-object-from-s3-securely",
     "topics": ["aws", "s3", "storage"],
     "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737245660/portfolio/blogs/s3-examples-get-object-from-s3-securely/cover_cdm8wd.png",
     "contentURL": "",
@@ -14,6 +15,7 @@
   {
     "id": "blogs-02",
     "name": "My first microservice application",
+    "value": "my-first-microservice-app",
     "topics": ["nodejs", "typescript", "microservice"],
     "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737245844/portfolio/blogs/my-first-microservice-app/cover_zhrtd9.png",
     "contentURL": "",
@@ -25,6 +27,7 @@
   },
   {
     "id": "blogs-03",
+    "value": "create-k8s-cluster-with-aws-kubeadm",
     "name": "Create K8S Cluster with AWS, Kubeadm",
     "topics": ["aws", "k8s", "kubeadm"],
     "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737245729/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/cover_qdck3j.png",
@@ -38,6 +41,7 @@
   {
     "id": "blogs-04",
     "name": "K8S Examples - Pod",
+    "value": "k8s-examples-pod",
     "topics": ["nodejs", "typescript", "microservice"],
     "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737246173/portfolio/blogs/k8s-examples-pod/cover_q3sic7.png",
     "contentURL": "",
@@ -50,6 +54,7 @@
   {
     "id": "blogs-05",
     "name": "K8S Examples - ReplicaSet",
+    "value": "k8s-examples-replicaset",
     "topics": ["nodejs", "typescript", "microservice"],
     "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737246196/portfolio/blogs/k8s-examples-replicaset/cover_zhufhg.png",
     "contentURL": "",

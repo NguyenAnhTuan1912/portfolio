@@ -20,7 +20,7 @@ function BlogCard({ data }: { data: BlogType }) {
     <div className="w-full">
       <div
         onClick={() =>
-          navigate(`${rootRoutesMetadata.get("blogs")?.path}/${data.id}`)
+          navigate(`${rootRoutesMetadata.get("blogs")?.path}/${data.value}`)
         }
         className="bg-secondary border border-primary border-b-4 mb-3 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
       >
@@ -49,7 +49,9 @@ function BlogCard({ data }: { data: BlogType }) {
       <div className="my-3">
         <h2
           onClick={() =>
-            navigate(`${rootRoutesMetadata.get("projects")?.path}/${data.id}`)
+            navigate(
+              `${rootRoutesMetadata.get("projects")?.path}/${data.value}`
+            )
           }
           className="font-semibold text-xl cursor-pointer hover:underline"
         >

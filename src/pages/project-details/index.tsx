@@ -1,5 +1,4 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import { ArrowLeft } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -11,6 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "src/components/ui/carousel";
+// Import components
+import MDContent from "src/components/markdown";
 
 // Import utils
 import { ProjectUtils } from "src/objects/projects/utils";
@@ -58,9 +59,9 @@ export default function ProjectDetailsPage() {
         <img className="w-full aspect-video object-contain" src={data.cover} />
       </div>
       <hr className="my-3" />
-      <div className="mb-3">
+      <div className="mb-3 [&>p]:mb-3 [&>ul]:mb-3 [&>ol]:mb-3">
         <h2 className="text-xl font-bold">Description</h2>
-        <ReactMarkdown>{data.description.long}</ReactMarkdown>
+        <MDContent>{data.description.long}</MDContent>
       </div>
       <div>
         <h2 className="text-xl font-bold">Time</h2>
