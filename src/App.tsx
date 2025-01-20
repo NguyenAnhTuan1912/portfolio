@@ -2,6 +2,7 @@ import React from "react";
 
 // Import objects
 import { ProjectUtils } from "./objects/projects/utils";
+import { BlogUtils } from "./objects/blogs/utils";
 
 // Import routes
 import RootRoutes from "./routes/RootRoutes";
@@ -37,8 +38,11 @@ function App() {
       let projects = projectsDefault.default;
       let blogs = blogsDefault.default;
 
-      // Transform projects before add
-      projects = ProjectUtils.mergeTechStacks(projects as any, techStacks);
+      // Transform projects & blogs before add
+      projects = ProjectUtils.sortNewest(
+        ProjectUtils.mergeTechStacks(projects as any, techStacks)
+      );
+      blogs = BlogUtils.sortNewest(blogs);
 
       setTechStacks(techStacks);
       setProjects(projects as any);

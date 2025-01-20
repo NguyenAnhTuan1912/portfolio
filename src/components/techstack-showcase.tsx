@@ -21,13 +21,18 @@ export default function TechstackShowcase() {
   const { techStacks } = useTechstacksState();
 
   return (
-    <div className="flex flex-col gap-6 flex-1 max-w-[1280px] mx-auto py-3">
+    <div className="flex flex-col gap-6 flex-1 max-w-[1280px] mx-auto py-3 px-3 lg:px-0">
       {techStacks ? (
         techStacks.map((techStack) => {
           return (
-            <div className="mb-3" key={techStack.value}>
-              <h2 className="font-bold text-center mb-3">{techStack.name}</h2>
-              <div className="flex justify-center gap-6">
+            <div
+              className="flex flex-col items-center mb-3"
+              key={techStack.value}
+            >
+              <h2 className="font-bold text-center mb-3 w-fit">
+                {techStack.name}
+              </h2>
+              <div className="flex justify-center flex-wrap gap-6">
                 {techStack.data.map((tech) => (
                   <TechCard key={tech.id} data={tech} />
                 ))}

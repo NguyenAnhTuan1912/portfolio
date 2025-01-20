@@ -8,6 +8,7 @@ type SettingsState = {
 };
 
 type SettingsStateActions = {
+  toggleTheme(): void;
   setTheme(theme: string): void;
   reset(): void;
 };
@@ -20,6 +21,16 @@ export const useSettingsState = create<SettingsState & SettingsStateActions>(
   (set) => {
     return {
       ...initialState,
+
+      /**
+       * Use to toggle theme between light and dark
+       */
+      toggleTheme() {
+        set((state) => ({
+          ...state,
+          theme: state.theme === "light" ? "dark" : "light",
+        }));
+      },
 
       /**
        * Use to change theme

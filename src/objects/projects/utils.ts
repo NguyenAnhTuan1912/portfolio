@@ -37,4 +37,13 @@ export class ProjectUtils {
 
     return projects;
   }
+
+  /**
+   * Use to sort project by `startDate`
+   * @param projects
+   * @returns
+   */
+  static sortNewest(projects: Array<ProjectType>) {
+    return projects.sort((a, b) => b.startDate - a.startDate);
+  }
 }
