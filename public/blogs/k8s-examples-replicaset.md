@@ -8,7 +8,7 @@ Tương tự, trong bài này mình sẽ vẫn dùng **EC2 t2.medium** để th�
 
 Về sau thì mình sẽ còn học thêm về một **Addon** là **Karpenter** hoặc **Auto Scaler**, cũng được dùng để mở rộng và thu gọn tài nguyên trong K8S Cluster. Nhưng thay vì thao tác trên Pods thì Addon này sẽ thao tác với các Nodes trên Cloud.
 
-![]()
+![0.1_vxncxx](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347275/portfolio/blogs/k8s-examples-replicaset/0.1_vxncxx.png)
 
 **ReplicaSet** sẽ luôn điều chỉnh số Pods về đúng với số Pods mà mình đã cấu hình cho nó từ trước đó, gọi là **Desired State**. Ngoài ra, khi làm việc với K8S thì mình cũng sẽ cần phải nắm được **Desired State** của các resource mà mình tạo ra.
 
@@ -101,7 +101,7 @@ spec:
         - containerPort: 5000
 ```
 
-![]()
+![1.1_ulpoms](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347275/portfolio/blogs/k8s-examples-replicaset/1.1_ulpoms.png)
 
 Tạo pod cho 2 services
 
@@ -112,7 +112,7 @@ kubectl create -f b-service-pod.yml
 
 Và 2 pods đều chạy ổn
 
-![]()
+![1.2_d72q7i](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347276/portfolio/blogs/k8s-examples-replicaset/1.2_d72q7i.png)
 
 ### Create ReplicaSet
 
@@ -181,15 +181,15 @@ kubectl create -f a-replicaset.yml
 kubectl create -f b-replicaset.yml
 ```
 
-![]()
+![2.1_nxwf9i](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347277/portfolio/blogs/k8s-examples-replicaset/2.1_nxwf9i.png)
 
-![]()
+![2.2_xlifxt](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347278/portfolio/blogs/k8s-examples-replicaset/2.2_xlifxt.png)
 
 Xong! Bạn có thể thấy là các thông tin của replicaset gồm **DESIRED**, **CURRENT** và **READY** và mình có thể thấy là các thông số đó giống nhau và đúng với số replicas đã cài đặt trước đó trong mỗi replicaset ⇒ như vậy là triển khai thành công. Và cho dù pod có tạo trước cả replicaset, thì replicaset vẫn có thể theo dõi nó được.
 
 **Note**: sẽ có lỗi xảy ra khi mà mình không có phần template trong file.
 
-![]()
+![2.3_ywkiso](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347279/portfolio/blogs/k8s-examples-replicaset/2.3_ywkiso.png)
 
 Nên giờ mình sẽ phải thêm phần này vào trong definition file của mỗi replicaset. Và mình cũng có thể thấy là `label` trong `matchLabels` của selector cũng phải trùng với label trong `template.metadata`.
 
@@ -230,15 +230,15 @@ Nếu như có thể tạo được, thì số pod của service A sẽ được
 kubectl create -f a-replicaset-dup.yml
 ```
 
-![]()
+![3.1_jjycov](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347280/portfolio/blogs/k8s-examples-replicaset/3.1_jjycov.png)
 
-![]()
+![3.2_umllhw](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347282/portfolio/blogs/k8s-examples-replicaset/3.2_umllhw.png)
 
 Như vậy thì mình có thể thấy là, vẫn có thể tạo được replicaset với cùng một label. Nhưng sao có thể? Giờ mình sẽ tìm hiểu sâu hơn.
 
 Giờ mình sẽ xoá replicaset cũ đi, sau đó là sửa lại tên của **a-replicaset-dup** trùng với tên của **a-replicaset**, sau đó tạo lại và xem chuyện gì sẽ xảy ra.
 
-![]()
+![3.3_m96dkf](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347285/portfolio/blogs/k8s-examples-replicaset/3.3_m96dkf.png)
 
 Có thể thấy là mình không thể tạo được vì đã có replicaset với tên đó đã tồn tại ⇒ Như vậy mình có thể kết luận là các pods cho dù có cùng một label giống nhau, thì vẫn có thể được quản lý bởi các replicaset khác nhau và replicaset không chỉ quản lý các pod dựa trên label, mà có thể còn dựa trên cả tên của pod.
 
@@ -248,7 +248,7 @@ Như vậy thì mình có thể thấy là các pod này về cơ bản là khá
 
 Hiện tại thì mình đang còn lại 2 replicasets, trước đó tạo 1 và xoá một.
 
-![]()
+![4.1_ek4aep](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347285/portfolio/blogs/k8s-examples-replicaset/4.1_ek4aep.png)
 
 Giờ mình sẽ thực hiện việc scale out 2 replicaset này lên.
 
@@ -258,7 +258,7 @@ Giờ mình sẽ thực hiện việc scale out 2 replicaset này lên.
 kubectl scale --replicas=5 replicaset/a-replicaset
 ```
 
-![]()
+![4.2_en9ujj](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347286/portfolio/blogs/k8s-examples-replicaset/4.2_en9ujj.png)
 
 Như vậy mình đã scale thành công.
 
@@ -268,11 +268,11 @@ Nhưng với **b-replicaset** thì mình sẽ scale theo kiểu khác, giờ th�
 kubectl apply -f b-replicaset.yml
 ```
 
-![]()
+![4.3_wugbml](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347295/portfolio/blogs/k8s-examples-replicaset/4.3_wugbml.png)
 
 Vẫn thành công! Vậy thì điểm khác biệt giữa 2 cách scale như này là như thế nào? Điểm khác biệt rõ ràng nhất là **b-replicaset** thì được sửa lại definition file còn **a-replicaset** thì cũng được sửa lại definition file, nhưng mà là bản copy mà **Control Plane** đang giữ.
 
-![]()
+![4.4_fxol36](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347295/portfolio/blogs/k8s-examples-replicaset/4.4_fxol36.png)
 
 Tạm thời là hiểu như vậy.
 
@@ -284,7 +284,7 @@ Còn giờ thì mình sẽ scale về như cũ với 2 cách luôn. Đầu tiên
 kubectl scale --replicas=2 replicaset a-replicaset
 ```
 
-![]()
+![5.1_gcer8l](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347296/portfolio/blogs/k8s-examples-replicaset/5.1_gcer8l.png)
 
 Xong, không ảnh hưởng gì tới definition file ban đầu.
 
@@ -294,7 +294,7 @@ Giờ mình sẽ chỉnh lại definition file của **b-replicaset** về lại
 kubectl apply -f b-replicaset.yml
 ```
 
-![]()
+![5.2_acwvku](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737347296/portfolio/blogs/k8s-examples-replicaset/5.2_acwvku.png)
 
 Xong, đã về như cũ, như vậy thì mình có thể thấy là mình có 2 cách để scale, một là dùng `kubectl scale`; hai là chỉnh lại definition file và dùng `kubectl apply`.
 

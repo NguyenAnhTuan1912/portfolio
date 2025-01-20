@@ -4,13 +4,13 @@ Trong bày này mình sẽ hướng dẫn cho các bạn các để có thể tr
 
 Cho những ai chưa biết, thì **Kubernetes** là một công cụ mạnh mẽ, linh hoạt dùng để điều phối các containers (**Container Orchestrator**). Trước đây, các hệ thống sẽ triển khai nhiều ứng dụng trong một host với máy ảo (Virtual Machine) nhằm đảm bảo cô lập, tách biệt tài nguyên của nhiều ứng dụng với nhau.
 
-![]()
+![0.1_i46ykx](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345362/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/0.1_i46ykx.webp)
 
 Tuy nhiên **VM** có một vấn đề là nó quá nặng, về dung lượng, **CPU** cũng như **RAM** để chạy một task mà đúng ra nếu không có **VM** thì sẽ nhẹ hơn rất nhiều. Nắm bắt được vấn đề đó thì người ta mới ra đời một khái niệm là Containerized Application / Program, là những application được chạy ở trong container.
 
 Container giống với **VM**, nhưng khác với **VM** là nó không có phần OS riêng, thay vào đó nó sẽ giao tiếp thẳng với Kernel của hệ điều hành chủ (Host OS) mà không cần phải có OS của riêng nó ⇒ từ đó giúp cho Container nhẹ **VM** rất rất nhiều, mà tốc độ cũng như các tính chất giống VM được đảm bảo.
 
-![]()
+![0.2_fvcumu](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345362/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/0.2_fvcumu.webp)
 
 Nhưng khi hệ thống có nhiều container hơn thì làm sao để mà chúng ta có thể quản lý được các containers đó một cách hiệu quả mà không gây ảnh hưởng tới hệ thống? Và trong một DataCenter không chỉ có duy nhất một Host, mà sẽ có rất nhiều Host? Đó là lý do vì sao các **Container Orchestrator** được sinh ra để làm việc đó.
 
@@ -22,7 +22,7 @@ Trong **K8S**, nó sẽ quản lý các Host / Machine trong một vùng đượ
 
 Sẽ có một hoặc nhiều Node(s) được gọi là Control Plane, nó chịu trách nhiệm cho việc quản lý và điều phối các Node.
 
-![]()
+![0.3_qd5sxx](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345362/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/0.3_qd5sxx.png)
 
 Về bản chất thì **Control Plane** cũng là Node, những có các thành phần đặc biệt hơn, các thành phần đó là:
 
@@ -36,7 +36,7 @@ Và để cho một Host / Machine có thể được gọi là K8S Node, bất 
 - **Kubelet**: là một K8S Agent, có nhiệm vụ là quan sát mọi hoạt động trong Node.
 - **Container Runtime**: coi như là huyết mạch của Node, các thành phần trong **Control Plane** đều là Pod, mà Pod cần phải có CR mới có thể hoạt động được.
 
-![]()
+![0.4_eh26vp](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345362/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/0.4_eh26vp.png)
 
 Mình chỉ giới thiệu đơn giản vậy thôi, các bạn có thể tham khảo thêm ở trong tài liệu chính thức của K8S, [tại đây]().
 
@@ -72,7 +72,7 @@ sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyring
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-![]()
+![1.1_iodhn1](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345364/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/1.1_iodhn1.png)
 
 Sau đó là thêm Docker Repository vào trong Apt sources
 
@@ -84,7 +84,7 @@ echo \
 sudo apt-get update
 ```
 
-![]()
+![1.2_ktrozl](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345364/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/1.2_ktrozl.png)
 
 Sau đó là cài Docker và một số công cụ khác của nó.
 
@@ -92,11 +92,11 @@ Sau đó là cài Docker và một số công cụ khác của nó.
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-![]()
+![1.3_oll8ay](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345364/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/1.3_oll8ay.png)
 
 Kiểm tra docker đã cài thành công hay chưa
 
-![]()
+![1.4_oieagn](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345363/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/1.4_oieagn.png)
 
 Ok, như vậy là chúng ta đã hoàn thành được bước đầu tiên.
 
@@ -110,7 +110,7 @@ wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.15/cri-docke
 
 Note: nếu không có wget thì bạn nên cài với lệnh `curl -o`.
 
-![]()
+![2.1_dbdhhv](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345368/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/2.1_dbdhhv.png)
 
 Sau đó chúng ta sẽ giải nén file này ra được một folder, truy vập vào folder này để lấy file bin ra và di chuyển vào trong `/usr/local/bin`.
 
@@ -120,9 +120,9 @@ cd cri-dockerd
 sudo mv cri-dockerd /usr/local/bin/
 ```
 
-![]()
+![2.2_xzc0nf](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345363/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/2.2_xzc0nf.png)
 
-![]()
+![2.3_vpxudi](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345368/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/2.3_vpxudi.png)
 
 Sau đó, chúng ta sẽ cài đặt Service cho **CRI-Dockerd**.
 
@@ -133,7 +133,7 @@ sudo mv cri-docker.socket cri-docker.service /etc/systemd/system/
 sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
 ```
 
-![]()
+![2.4_ps5evf](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345367/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/2.4_ps5evf.png)
 
 Và khởi động service này
 
@@ -146,9 +146,9 @@ sudo systemctl start --now cri-docker.socket
 sudo systemctl status cri-docker.socket
 ```
 
-![]()
+![2.5_ldl5oe](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345365/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/2.5_ldl5oe.png)
 
-![]()
+![2.6_j4zq6p](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345370/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/2.6_j4zq6p.png)
 
 Ok, như vậy là chúng ta đã xong bước thứ 2.
 
@@ -170,7 +170,7 @@ Sau đó là tải public signing key cho K8S package repositories.
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-![]()
+![3.1_qoi5iz](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345368/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.1_qoi5iz.png)
 
 Sau đó là thêm K8S repositories
 
@@ -178,7 +178,7 @@ Sau đó là thêm K8S repositories
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
 ```
 
-![]()
+![3.2_s1ykjr](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345369/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.2_s1ykjr.png)
 
 Cuối cùng là cài đặt **kubeadm**, **kubectl** và **kubelet**.
 
@@ -188,7 +188,7 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
-![]()
+![3.3_woh7ne](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345371/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.3_woh7ne.png)
 
 ### Init control plane
 
@@ -200,11 +200,11 @@ sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=unix:///var/run
 
 Note: `--pod-network-cidr` các bạn có thể thay đổi, nhưng không được thay đổi `--cri-socket`.
 
-![]()
+![3.4_pecnfd](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345370/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.4_pecnfd.png)
 
 Tạo xong thì sẽ nhận được message như này
 
-![]()
+![3.5_ockfgo](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345371/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.5_ockfgo.png)
 
 Và để cho người dùng `ubuntu` có thể dùng được Control Plane, thì chúng ta sẽ cần phải copy `/etc/kubernetes/admin.conf` vào trong `$HOME/.kube/config`.
 
@@ -214,17 +214,17 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-![]()
+![3.6_ofjdkw](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345370/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.6_ofjdkw.png)
 
 Giờ thử tương tác với cluster thông qua `kubelet`.
 
-![]()
+![3.7_ppp8nq](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345370/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.7_ppp8nq.png)
 
 Vậy là đã thành công!!!
 
 Nhưng tới đây thì mình sẽ cần cài thêm một số thứ nữa để pod có thể giao tiếp được với nhau. Có thể thấy là chúng ta có thể tạo được Pod, nhưng nó không chạy.
 
-![]()
+![3.8_aq1md3](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345371/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/3.8_aq1md3.png)
 
 Mình sẽ có 2 hướng là chạy Cluster với **Single Node** hoặc **Multiple Node**, nhưng trong bài này mình hướng dẫn là **Single Node**, tiếp theo thì chúng ta sẽ cần phải thiết lập một số thứ nữa.
 
@@ -236,7 +236,7 @@ Giờ thì chúng ta sẽ cài thêm Addon cho cluster, Addon này sẽ chạy d
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
 
-![]()
+![4.1_dujxmw](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345381/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/4.1_dujxmw.png)
 
 Chạy Pod xong, thì mình sẽ kiểm tra xem các Pods đã chạy được hay chưa?
 
@@ -244,7 +244,7 @@ Chạy Pod xong, thì mình sẽ kiểm tra xem các Pods đã chạy được h
 kubectl get pods -A
 ```
 
-![]()
+![4.2_v7jayd](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345375/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/4.2_v7jayd.png)
 
 Tiếp theo là kiểm tra xem Node đã `Ready` hay chưa?
 
@@ -252,7 +252,7 @@ Tiếp theo là kiểm tra xem Node đã `Ready` hay chưa?
 kubectl get nodes
 ```
 
-![]()
+![4.3_gfxsmk](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737345372/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/4.3_gfxsmk.png)
 
 Như vậy là Node của chúng ta đã gần như là sẵn sàng để triển khai được một ứng dụng mẫu đầu tiên.
 
@@ -264,7 +264,7 @@ Theo mặc định thì chúng ta sẽ không được phép tạo pod bình th�
 kubectl taint nodes --all node-role.kubernetes.io/control-plane-
 ```
 
-![]()
+![5.1_zf6344.png](https://res.cloudinary.com/dhqgfphiy/image/upload/v1737346320/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/5.1_zf6344.png)
 
 ### Test result
 
@@ -274,7 +274,7 @@ Sau khi cài đặt xong thì chúng ta thử triển khai lại Pod chạy Ngin
 kubectl run nginx --image=nginx
 ```
 
-![]()
+![6.1_dmi023](https://res.cloudinary.com/dhqgfphiy/image/upload/v1737346257/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/6.1_dmi023.png)
 
 Vậy là giờ Pod đã chạy thành công, giờ thì chúng ta sẽ cần phải mở port cho Pod này bằng cách tạo một service (NodePort service) cho phép truy cập từ bên ngoài vào trong Pods.
 
@@ -286,13 +286,13 @@ kubectl expose pod nginx --type=NodePort --port=80
 kubectl get services
 ```
 
-![]()
+![6.2_ij8abd](https://res.cloudinary.com/dhqgfphiy/image/upload/v1737346257/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/6.2_ij8abd.png)
 
 Lưu ý với port **32589**, mình sẽ cho phép access từ port này từ ngoài máy ảo (qua địa chỉ IPv4 của nó) trong Security Group.
 
 Kết quả cuối cùng chúng ta sẽ có được là
 
-![]()
+![6.3_qbxmef](https://res.cloudinary.com/dhqgfphiy/image/upload/v1737346257/portfolio/blogs/create-k8s-cluster-with-aws-kubeadm/6.3_qbxmef.png)
 
 ## Conclusion
 

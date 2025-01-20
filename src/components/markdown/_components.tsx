@@ -77,6 +77,14 @@ function Pre({ children }: { children: React.ReactNode | string }) {
   return <>{children}</>;
 }
 
+function Image(props: any) {
+  return (
+    <div className="flex justify-center">
+      <img className="" src={props.src} alt={props.alt} />
+    </div>
+  );
+}
+
 function Code({
   children,
   className,
@@ -151,4 +159,5 @@ export const MDComponents: Components = {
   pre: Pre as any,
   code: Code as any,
   br: Break,
+  img: Image as any,
 };

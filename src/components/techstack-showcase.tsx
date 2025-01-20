@@ -9,7 +9,9 @@ import type { TechType } from "src/objects/techstacks/types";
 function TechCard({ data }: { data: TechType }) {
   return (
     <div className="flex h-fit">
-      <div className="w-[32px] h-[32px] bg-primary border border-primary aspect-square"></div>
+      <div className="flex items-center w-[32px] h-[32px] aspect-square">
+        <img src={`/icons/${data.value}.svg`} />
+      </div>
       <h2 className="ms-3 text-lg">{data.name}</h2>
     </div>
   );

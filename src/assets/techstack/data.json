@@ -56,7 +56,7 @@
       },
       {
         "id": "lnf-03",
-        "value": "react",
+        "value": "reactjs",
         "name": "ReactJS"
       },
       {
@@ -139,7 +139,7 @@
       },
       {
         "id": "others-03",
-        "value": "ai",
+        "value": "adobe-illustrator",
         "name": "Adobe Illustrator"
       },
       {
@@ -154,7 +154,7 @@
       },
       {
         "id": "others-06",
-        "value": "terraform",
+        "value": "tf",
         "name": "Terraform"
       },
       {

@@ -9,7 +9,7 @@ Trong bài này thì mình sẽ xem lại về một ứng dụng mà mình mớ
 - **MySQL** để lưu trữ thông tin người dùng.
 - **Docker** để container hoá các tiến trình. Vì mục tiêu của mình là triển khai ứng dụng lên hạ tầng được quản lý bởi Kubernetes.
 
-![]()
+![0_xn0mb9](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289432/portfolio/blogs/my-first-microservice-app/0_xn0mb9.png)
 
 ## Table of Contents
 
@@ -27,7 +27,7 @@ Trong bài này thì mình sẽ nói về một số nội dung như sau:
 
 Dưới đây là kiến trúc tổng quan của hệ thống:
 
-![]()
+![1.1_am0vff](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289434/portfolio/blogs/my-first-microservice-app/1.1_am0vff.png)
 
 Đầu tiên, để giải thích được vì sao mình lại chuyển qua kiến trúc **microservice**, là do vấn đề của kiến trúc **monolith**, theo từng ý như sau:
 
@@ -48,7 +48,7 @@ Với kiến trúc microservice thì nó khắc phục được những vấn đ
 
 ## Identity Service
 
-![]()
+![2.1_znyozi](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289434/portfolio/blogs/my-first-microservice-app/2.1_znyozi.png)
 
 Vai trò của dịch vụ này đơn giản sẽ là xác thực và ủy quyền cho người dùng. Bằng cách kiểm tra trong cơ sở dữ liệu để có thể kiểm tra xem người dùng gửi request đăng nhập tới có phải là người dùng hợp lệ của ứng dụng hay không? Khi kiểm tra xong thì dịch vụ này có thể cung cấp cho người dùng đó một token, được xem như là giấy ủy quyền cho người đùng đó thực hiện các thao tác với các dịch vụ khác ở trong hệ thống.
 
@@ -56,11 +56,11 @@ Service này cũng cho phép đăng ký tài khoản mới và lưu lại thông
 
 Identity Service sẽ kết nối tới Identity Database để có thể đọc và ghi dữ liệu người đùng. Service này sẽ xác thực người dùng đươn giản như sau:
 
-![]()
+![2.2_taryxw](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289433/portfolio/blogs/my-first-microservice-app/2.2_taryxw.png)
 
 Bên cạnh đó cũng sẽ ủy quyền cho người dùng bằng cách cung cấp token như sau:
 
-![]()
+![2.3_wfqhfi](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289433/portfolio/blogs/my-first-microservice-app/2.3_wfqhfi.png)
 
 Payload của token bao gồm các thông tin như:
 
@@ -70,7 +70,7 @@ Payload của token bao gồm các thông tin như:
 
 ## Task Service
 
-![]()
+![3.1_pcdork](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289434/portfolio/blogs/my-first-microservice-app/3.1_pcdork.png)
 
 Vai trò của dịch vụ này cho phép người dùng có thể tạo task, thay đổi trạng thái của task ⇒ thao tác các tác vụ của người dùng. Đơn giản chỉ có thế, nhưng trong mỗi **endpoints** đều sẽ có các **middlewares** dùng để check xem là người dùng này có thể dùng được dịch vụ này hay không? Hay cụ thể hơn là có thể thêm / xóa / sửa task hay không?
 
@@ -84,7 +84,7 @@ Tuy 2 services không tương tác trực tiếp với nhau, nhưng giữa 2 ser
 
 Mình sẽ ví dụ với Create Task Request
 
-![]()
+![4.1_btizhz](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289434/portfolio/blogs/my-first-microservice-app/4.1_btizhz.png)
 
 Từng bước như sau:
 
@@ -130,7 +130,7 @@ Xem chi tiết hơn tại
 
 ## Nginx & ReactJS
 
-![]()
+![5.1_nffp1b](http://res.cloudinary.com/dhqgfphiy/image/upload/v1737289434/portfolio/blogs/my-first-microservice-app/5.1_nffp1b.png)
 
 Vai trò của **Nginx** là proxy, ẩn Task và Identity Service đang nằm ở bên dưới hệ thống. Đồng thời cũng sẽ thực hiện việc gửi ứng dụng web về cho người dùng. **Nginx** sẽ là thành phần nằm ở phần public của hệ thống, cho phép tiếp nhận các requests từ client và chuyển tiếp các requests đó về cho các Services tương ứng.
 
