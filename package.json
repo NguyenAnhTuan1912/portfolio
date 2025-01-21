@@ -15,7 +15,8 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd app & npm run build",
+    "build:app": "turbo run build --filter=tuna-portfolio-web",
+    "build": "npm run build:app",
     "start": "ts-node index.ts",
     "dev": "nodemon"
   },
@@ -31,6 +32,11 @@
     "src": "./src"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0"
-  }
+    "@types/express": "^5.0.0",
+    "turbo": "^2.3.3"
+  },
+  "packageManager": "npm@11.0.0",
+  "workspaces": [
+    "app"
+  ]
 }
