@@ -33,15 +33,9 @@ function BlogCard({ data }: { data: BlogType }) {
         <div className="mb-3 hidden lg:block">
           <div>
             <p className="text-sm">
-              <span className="me-2">Create at:</span>
+              <span className="me-2">Pushlish at</span>
               <span className="text-destructive">
                 {BlogUtils.toBlogDateStr(data.createdAt)}
-              </span>
-            </p>
-            <p className="text-sm">
-              <span className="me-2">Update at:</span>
-              <span className="text-destructive">
-                {BlogUtils.toBlogDateStr(data.updatedAt)}
               </span>
             </p>
           </div>

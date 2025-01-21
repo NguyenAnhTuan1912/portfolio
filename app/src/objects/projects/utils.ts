@@ -10,7 +10,8 @@ export class ProjectUtils {
    */
   static toProjectDateStr(dateNum: number) {
     const date = new Date(dateNum);
-    return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    const [, month, , year] = date.toDateString().split(" ");
+    return `${month} ${year}`;
   }
 
   /**

@@ -7,6 +7,12 @@
       "config": { "includeFiles": ["build/**"] }
     }
   ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
