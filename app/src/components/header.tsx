@@ -11,17 +11,8 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -51,6 +42,32 @@ export default function Header() {
   const rootPath = location.pathname.split("/")[1];
 
   const routesMetadata = React.useMemo(() => [...rootRoutesMetadata], []);
+
+  React.useEffect(() => {
+    const title = "Nguyen Anh Tuan | ";
+    // Change title
+    switch (rootPath) {
+      case "projects": {
+        document.title = title + "Projects";
+        break;
+      }
+
+      case "blogs": {
+        document.title = title + "Blogs";
+        break;
+      }
+
+      case "contact": {
+        document.title = title + "Contact";
+        break;
+      }
+
+      default: {
+        document.title = title + "Home";
+        break;
+      }
+    }
+  }, [rootPath]);
 
   return (
     <header className="sticky top-0 flex items-center justify-between px-3 border-b border-primary z-50 bg-background">

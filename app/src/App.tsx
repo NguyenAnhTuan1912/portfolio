@@ -12,6 +12,7 @@ import { useTechstacksState } from "./states/techstacks";
 import { useSettingsState } from "./states/settings";
 import { useProjectsState } from "./states/projects";
 import { useBlogsState } from "./states/blogs";
+import { useContactsState } from "./states/contact";
 
 import "./App.css";
 
@@ -20,23 +21,31 @@ function App() {
   const { setTechStacks } = useTechstacksState();
   const { setProjects } = useProjectsState();
   const { setBlogs } = useBlogsState();
+  const { setContactStacks } = useContactsState();
 
   // Fecth data
   React.useEffect(() => {
     console.log("Request data");
-    const getTechStacksPromise = import("src/assets/techstack/data.json");
-    const getProjectsPromise = import("src/assets/projects/data.json");
-    const getBlogsPromise = import("src/assets/blogs/data.json");
+    const getTechStacksPromise = fetch("/data/techstack/data.json").then(
+      (res) => res.json()
+    );
+    const getProjectsPromise = fetch("/data/projects/data.json").then((res) =>
+      res.json()
+    );
+    const getBlogsPromise = fetch("/data/blogs/data.json").then((res) =>
+      res.json()
+    );
+    const getContactsPromise = fetch("/data/contact/data.json").then((res) =>
+      res.json()
+    );
 
     Promise.all([
       getTechStacksPromise,
       getProjectsPromise,
       getBlogsPromise,
+      getContactsPromise,
     ]).then((values) => {
-      let [techStacksDefault, projectsDefault, blogsDefault] = values;
-      let techStacks = techStacksDefault.default;
-      let projects = projectsDefault.default;
-      let blogs = blogsDefault.default;
+      let [techStacks, projects, blogs, contact] = values;
 
       // Transform projects & blogs before add
       projects = ProjectUtils.sortNewest(
@@ -47,6 +56,7 @@ function App() {
       setTechStacks(techStacks);
       setProjects(projects as any);
       setBlogs(blogs);
+      setContactStacks(contact);
     });
   }, []);
 

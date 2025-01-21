@@ -43,7 +43,7 @@ export default function ProjectDetailsPage() {
     <div className="flex flex-1 flex-col max-w-[960px] mx-auto py-3">
       <div className="flex items-center justify-between  mb-3">
         <p
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/projects")}
           className="flex items-center cursor-pointer hover:underline"
         >
           <ArrowLeft className="me-3" size={16} /> Back

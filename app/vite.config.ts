@@ -9,5 +9,15 @@ export default defineConfig({
       src: path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        dir: "../dist",
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
+      },
+    },
+  },
   assetsInclude: ["**/*.md"],
 });
