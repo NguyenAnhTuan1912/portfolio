@@ -124,11 +124,10 @@ async function main() {
     // Setup server instance
     const instance = http.createServer(app);
     const port = process.env.PORT || "5000";
-    const host = process.env.HOST || "0.0.0.0";
 
     // Start listen
-    instance.listen(port, host as any, async () => {
-      console.log(`You server is listening on http://${host}:${port}`);
+    instance.listen(port, async () => {
+      console.log(`You server is listening on http://localhost:${port}`);
     });
   } catch (error: any) {
     console.error(error.message);
