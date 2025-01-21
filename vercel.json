@@ -12,11 +12,5 @@
       "source": "/(.*)",
       "destination": "/"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "build/index.js"
-    }
   ]
 }
