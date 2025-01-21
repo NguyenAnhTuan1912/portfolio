@@ -12,31 +12,22 @@
   },
   "license": "ISC",
   "author": "Nguyen Anh Tuan",
-  "main": "index.ts",
+  "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:app": "turbo run build --filter=tuna-portfolio-web",
-    "build": "npm run build:app",
-    "start": "ts-node index.ts",
+    "build:server": "turbo run build --filter=tuna-portfolio-server",
+    "build": "npm run build:server && npm run build:app",
+    "prestart": "npm run build",
+    "start": "node build/index.js",
     "dev": "nodemon"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.21.2",
-    "handlebars": "^4.7.8",
-    "module-alias": "^2.2.3",
-    "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2"
-  },
-  "_moduleAliases": {
-    "src": "./src"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.0",
-    "turbo": "^2.3.3"
   },
   "packageManager": "npm@11.0.0",
   "workspaces": [
-    "app"
-  ]
+    "app",
+    "server"
+  ],
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  }
 }

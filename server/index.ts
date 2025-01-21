@@ -18,20 +18,20 @@ type MainTemplateType = {
 const app = express();
 
 // Add global middleware
-app.use(express.static("dist"));
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 function getBlogByValue(value: string) {
   const blogs = JSON.parse(
-    fs.readFileSync("./dist/data/blogs/data.json").toString()
+    fs.readFileSync("./public/data/blogs/data.json").toString()
   );
   return blogs.find((blog: any) => blog.value === value);
 }
 
 function getProjectById(id: string) {
   const projects = JSON.parse(
-    fs.readFileSync("./dist/data/projects/data.json").toString()
+    fs.readFileSync("./public/data/projects/data.json").toString()
   );
   return projects.find((project: any) => project.id === id);
 }
