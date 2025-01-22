@@ -52,28 +52,28 @@ export default function HomePage() {
         <div className="max-w-[720px] text-justify px-3 py-6 border-x border-primary">
           <p className="mb-3">
             &nbsp;&nbsp;&nbsp;&nbsp;In the beginning of this field, I had a
-            strong interest for designing and coding, so I learnt and practice
-            in the "front" of web developer to satisfy my interest.
+            strong interest in designing and coding, so I learnt and practiced
+            in the "front" of web developement to satisfy my passion.
           </p>
           <p className="mb-3">
             By the time, I went further in this field and I found that ... there
             are many things to explore! FrontEnd is an "ocean" and BackEnd is
-            another "ocean" too ! It makes me have to put to the sea to explore
+            another "ocean" too! It makes me have to put to the sea to explore
             new things. And I'm super happy with that experience / journey.
           </p>
           <p className="mb-3">
-            In 2024, I had a big updated for myself. I started learning about
+            In 2024, I had a big update to myself. I started learning about
             Cloud Computing (AWS) at{" "}
             <span className="bg-yellow-400 font-bold">First Cloud Journey</span>{" "}
             program. Then, I was curious to know what{" "}
             <span className="bg-yellow-400 font-bold">Blockchain</span> is. And
-            boom ! I have two parallel journeys, It's so hard at that time, but
-            it's still fun.
+            boom! I have two parallel journeys, It's so hard at that time, but
+            still fun.
           </p>
           <p>
-            Now, I'm trying to make my career as a Journey to enjoy it as much
-            as possible. That's all, you should scroll down to know more about
-            my experiences.
+            Now, I'm trying to make my career as a journey to enjoy it as much
+            as possible, that's why I love to write. That's all, you should
+            scroll down to know more about my experiences.
           </p>
         </div>
       </div>
