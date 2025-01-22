@@ -118,7 +118,7 @@ export default function Header() {
                     return (
                       <Button
                         key={metadata[1].path}
-                        variant={isCurrentShown ? "default" : "ghost"}
+                        variant={isCurrentShown ? "default" : "outline"}
                         onClick={() => navigate(metadata[1].path)}
                       >
                         <p
