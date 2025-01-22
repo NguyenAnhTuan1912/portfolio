@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && tsc && copyfiles -u 1 templates/**/* ../build/templates/"
+    "build": "npm install && tsc && copyfiles -u 1 templates/**/* ../api/templates/"
   },
   "dependencies": {
     "cors": "^2.8.5",
