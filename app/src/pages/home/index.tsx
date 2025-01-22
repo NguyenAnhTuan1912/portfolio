@@ -92,14 +92,14 @@ export default function HomePage() {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="relative flex flex-col items-center w-full py-3 border-b border-primary">
+        <div className="relative flex flex-col items-center w-full py-3 border-y border-primary">
           <h2 className="font-bold text-2xl">Projects</h2>
           <p>What i did</p>
         </div>
         <div className="w-full my-4">
           <ProjectsShowcase />
         </div>
-        <div className="w-full">
+        <div className="w-full mb-3">
           <p
             onClick={() => navigate(rootRoutesMetadata.get("projects")!.path)}
             className="text-center underline cursor-pointer"
@@ -109,7 +109,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="flex flex-col mb-3">
-        <div className="relative flex flex-col items-center w-full py-3 border-b border-primary">
+        <div className="relative flex flex-col items-center w-full py-3 border-y border-primary">
           <h2 className="font-bold text-2xl">Blogs</h2>
           <p>What i wrote</p>
         </div>

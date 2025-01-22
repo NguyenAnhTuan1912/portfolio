@@ -19,7 +19,7 @@
     "build:server": "turbo run build --filter=tuna-portfolio-server",
     "build": "npm run build:server && npm run build:app",
     "prestart": "npm run build",
-    "start": "node  api/index.js",
+    "start": "node  build/index.js",
     "dev": "nodemon"
   },
   "packageManager": "npm@11.0.0",

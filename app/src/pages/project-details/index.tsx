@@ -40,8 +40,8 @@ export default function ProjectDetailsPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col max-w-[960px] mx-auto py-3">
-      <div className="flex items-center justify-between  mb-3">
+    <div className="flex flex-1 flex-col max-w-[960px] mx-auto py-3 px-2 lg:px-0">
+      <div className="flex items-center justify-between mb-3">
         <p
           onClick={() => navigate("/projects")}
           className="flex items-center cursor-pointer hover:underline"
@@ -100,7 +100,7 @@ export default function ProjectDetailsPage() {
       <div className="mb-3">
         <h2 className="text-xl font-bold">Images</h2>
         <p className="mb-3">Some images of this project</p>
-        <div className="flex justify-center">
+        <div className="w-full flex justify-center">
           <Carousel className="w-full">
             <CarouselContent>
               {data.images.map((image, index) => (
@@ -114,30 +114,32 @@ export default function ProjectDetailsPage() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className="hidden lg:flex" />
+            <CarouselNext className="hidden lg:flex" />
           </Carousel>
         </div>
       </div>
-      <div>
+      <div className="flex flex-col">
         <h2 className="text-xl font-bold">Link</h2>
         <p>Access these links to get more information about this project</p>
-        <ul>
+        <div className="w-full">
           {data.links.map((link) => {
             return (
-              <li key={link.id}>
+              <div className="w-full" key={link.id}>
                 <strong>{link.name}:</strong>{" "}
-                <a
-                  className="hover:underline"
-                  target="_blank"
-                  href={link.value}
-                >
-                  {link.value}
-                </a>
-              </li>
+                <div className="overflow-y-auto px-4 py-3 rounded bg-secondary">
+                  <a
+                    className="break-all hover:underline"
+                    target="_blank"
+                    href={link.value}
+                  >
+                    {link.value}
+                  </a>
+                </div>
+              </div>
             );
           })}
-        </ul>
+        </div>
       </div>
     </div>
   );

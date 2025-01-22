@@ -26,11 +26,11 @@ function ProjectCard({ data }: { data: ProjectType }) {
         onClick={() =>
           navigate(`${rootRoutesMetadata.get("projects")?.path}/${data.id}`)
         }
-        className="block max-w-[120px] lg:max-w-full me-3 lg:me-0 lg:mb-3 aspect-square bg-secondary border border-primary border-b-4 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
+        className="w-full max-w-[120px] lg:max-w-full me-3 lg:me-0 lg:mb-3 aspect-square bg-secondary border border-primary border-b-4 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
       >
         <img className="object-contain aspect-square" src={data.cover} />
       </div>
-      <main>
+      <main className="w-full">
         <div className="mb-3 hidden lg:block">
           <h2 className="text-sm">{data.type}</h2>
           <div className="flex items-center">

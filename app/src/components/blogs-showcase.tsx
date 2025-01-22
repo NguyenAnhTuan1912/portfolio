@@ -22,14 +22,14 @@ function BlogCard({ data }: { data: BlogType }) {
         onClick={() =>
           navigate(`${rootRoutesMetadata.get("blogs")?.path}/${data.value}`)
         }
-        className="block max-w-[120px] lg:max-w-full me-3 lg:me-0 lg:mb-3 aspect-square bg-secondary border border-primary border-b-4 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
+        className="w-full max-w-[120px] lg:max-w-full me-3 lg:me-0 lg:mb-3 aspect-square bg-secondary border border-primary border-b-4 cursor-pointer overflow-hidden hover:shadow-[0_0_0_2px_hsl(var(--primary))]"
       >
         <img
           className="object-contain aspect-square object-center"
           src={data.cover}
         />
       </div>
-      <main>
+      <main className="w-full">
         <div className="mb-3 hidden lg:block">
           <div>
             <p className="text-sm">
@@ -44,9 +44,7 @@ function BlogCard({ data }: { data: BlogType }) {
         <div className="mb-3 lg:my-3">
           <h2
             onClick={() =>
-              navigate(
-                `${rootRoutesMetadata.get("projects")?.path}/${data.value}`
-              )
+              navigate(`${rootRoutesMetadata.get("blogs")?.path}/${data.value}`)
             }
             className="font-semibold text-xl cursor-pointer hover:underline"
           >

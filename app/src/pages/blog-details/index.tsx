@@ -40,7 +40,7 @@ export default function BlogDetailsPage() {
   }
 
   return (
-    <div className="flex flex-1 flex-col max-w-[960px] w-full mx-auto py-3">
+    <div className="flex flex-1 flex-col max-w-[960px] w-full mx-auto py-3 px-2 lg:px-0">
       <div className="flex items-center justify-between  mb-3">
         <p
           onClick={() => navigate("/blogs")}
