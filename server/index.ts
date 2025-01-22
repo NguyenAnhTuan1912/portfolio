@@ -1,4 +1,5 @@
 import fs from "fs";
+import path from "path";
 import express from "express";
 import http from "http";
 import Handlebars from "handlebars";
@@ -16,28 +17,28 @@ type MainTemplateType = {
 };
 
 const app = express();
+const rootDir = path.resolve(process.argv[1], "..");
 
 // Add global middleware
-app.use(express.static("public"));
+app.use(express.static(path.resolve(rootDir, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 function getBlogByValue(value: string) {
-  const blogs = JSON.parse(
-    fs.readFileSync("./public/data/blogs/data.json").toString()
-  );
+  const _path = path.resolve(rootDir, "public/data/blogs/data.json");
+  const blogs = JSON.parse(fs.readFileSync(_path).toString());
   return blogs.find((blog: any) => blog.value === value);
 }
 
 function getProjectById(id: string) {
-  const projects = JSON.parse(
-    fs.readFileSync("./public/data/projects/data.json").toString()
-  );
+  const _path = path.resolve(rootDir, "public/data/projects/data.json");
+  const projects = JSON.parse(fs.readFileSync(_path).toString());
   return projects.find((project: any) => project.id === id);
 }
 
 function getMainTemplate() {
-  const template = fs.readFileSync("./templates/index.template");
+  const _path = path.resolve(rootDir, "templates/index.template");
+  const template = fs.readFileSync(_path);
   return template.toString();
 }
 
@@ -49,7 +50,6 @@ function buildTemplate(template: any, data: MainTemplateType) {
 }
 
 function sendResult(res: Response, data: MainTemplateType) {
-  res.setHeader("Content-Type", "text/html");
   res.status(200).send(buildTemplate(getMainTemplate(), data));
 }
 

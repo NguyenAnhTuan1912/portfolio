@@ -15,7 +15,10 @@ export default defineConfig({
         dir: "../api/public",
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,
-        assetFileNames: `assets/[name].[ext]`,
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.names.includes("index.css")) return "assets/style.css";
+          return `$assets/${assetInfo.names[0]}`;
+        },
       },
     },
   },

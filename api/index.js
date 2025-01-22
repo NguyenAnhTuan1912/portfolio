@@ -4,26 +4,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
 const handlebars_1 = __importDefault(require("handlebars"));
 // Use module-alias
 require("module-alias/register");
 const app = (0, express_1.default)();
+const rootDir = path_1.default.resolve(process.argv[1], "..");
 // Add global middleware
-app.use(express_1.default.static("public"));
+app.use(express_1.default.static(path_1.default.resolve(rootDir, "public")));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 function getBlogByValue(value) {
-    const blogs = JSON.parse(fs_1.default.readFileSync("./public/data/blogs/data.json").toString());
+    const _path = path_1.default.resolve(rootDir, "public/data/blogs/data.json");
+    const blogs = JSON.parse(fs_1.default.readFileSync(_path).toString());
     return blogs.find((blog) => blog.value === value);
 }
 function getProjectById(id) {
-    const projects = JSON.parse(fs_1.default.readFileSync("./public/data/projects/data.json").toString());
+    const _path = path_1.default.resolve(rootDir, "public/data/projects/data.json");
+    const projects = JSON.parse(fs_1.default.readFileSync(_path).toString());
     return projects.find((project) => project.id === id);
 }
 function getMainTemplate() {
-    const template = fs_1.default.readFileSync("./templates/index.template");
+    const _path = path_1.default.resolve(rootDir, "templates/index.template");
+    const template = fs_1.default.readFileSync(_path);
     return template.toString();
 }
 function buildTemplate(template, data) {
@@ -33,7 +38,6 @@ function buildTemplate(template, data) {
     return templateHandler(data);
 }
 function sendResult(res, data) {
-    res.setHeader("Content-Type", "text/html");
     res.status(200).send(buildTemplate(getMainTemplate(), data));
 }
 // Define routes
