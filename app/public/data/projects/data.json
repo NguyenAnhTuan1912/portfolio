@@ -38,7 +38,7 @@
     "links": [
       {
         "id": "links-01",
-        "name": "Github",
+        "name": "Source code",
         "value": "https://github.com/NguyenAnhTuan1912/quiz-app"
       },
       {
@@ -138,7 +138,7 @@
     "links": [
       {
         "id": "links-01",
-        "name": "Github",
+        "name": "Source code",
         "value": "https://github.com/NekoCyan/DNTU-Research-Conference-2023"
       },
       {
@@ -193,12 +193,12 @@
     "links": [
       {
         "id": "links-01",
-        "name": "Github",
+        "name": "Source code",
         "value": "https://github.com/FromSunNews/DongNaiTravelApp"
       },
       {
         "id": "links-02",
-        "name": "Github",
+        "name": "Source code",
         "value": "https://github.com/FromSunNews/DongNaiTravelAPI"
       },
       {
@@ -249,7 +249,7 @@
     "links": [
       {
         "id": "links-01",
-        "name": "Github",
+        "name": "Source code",
         "value": "https://github.com/NguyenAnhTuan1912/tuna-caro"
       },
       {
@@ -268,6 +268,128 @@
   },
   {
     "id": "projects-06",
+    "name": "Imga - OCR Application on AWS",
+    "type": "workshop",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-04" }]
+      },
+      {
+        "value": "cloud",
+        "name": "Cloud",
+        "data": [{ "id": "cloud-01" }]
+      },
+      {
+        "name": "Others",
+        "value": "others",
+        "data": [{ "id": "others-05" }]
+      }
+    ],
+    "description": {
+      "short": "Extract text from image to excel file",
+      "long": "My personal project, an OCR tool helps users extract data of table from image to excel file. Application is deployed on AWS Cloud with Amazon EC2, Amazon S3, Amazon API Gateway and Amazon CloudFront.\n\nWhat I did on this project:\n\n- Built a NodeJS Server for users to upload images and request to dectect text in table.\n- Used Open CV and Tesseract to detect and extract text in table as well as built a module to pre-processing image (fit the table, make text clearer).\n- Deployed application with Docker to EC2.\n- Wrote bash scripts to automatically install resources.\n- Drew architecture of solution."
+    },
+    "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1739847424/portfolio/works/imga/cover_ebqkrw.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739847095/portfolio/works/imga/1.1_cb0lw1.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739847096/portfolio/works/imga/1.2_crajk0.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739847095/portfolio/works/imga/1.3_nylof9.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739847095/portfolio/works/imga/1.4_mpkplb.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739847096/portfolio/works/imga/1.5_mllvia.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739847096/portfolio/works/imga/1.6_ovvxhv.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Source code",
+        "value": "https://github.com/FCJ-DNTU/imga"
+      },
+      {
+        "id": "links-02",
+        "name": "Workshop",
+        "value": "https://fcj-dntu.github.io/imga-workshop/"
+      },
+      {
+        "id": "links-03",
+        "name": "Workshop content",
+        "value": "https://github.com/FCJ-DNTU/imga-workshop"
+      }
+    ],
+    "startDate": 1725382800000,
+    "endDate": 1722618000000
+  },
+  {
+    "id": "projects-07",
+    "name": "FCJResbar - Containerized application on AWS",
+    "type": "workshop",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-01" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-01" }, { "id": "lnf-02" }, { "id": "lnf-03" }]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-03" }]
+      },
+      {
+        "name": "Others",
+        "value": "others",
+        "data": [{ "id": "others-10" }]
+      }
+    ],
+    "description": {
+      "short": "A restaurant reservation application with User and Admin site",
+      "long": "A restaurant reservation application with User and Admin site. Application is deploy on AWS Cloud with Amazon ECS, ECR; continuous integration and continuous deployment with Source code Actions and Gitlab CI/CD.\n\nWhat I did on this project:\n\n- Assigned tasks to teammates and managed project’s progress.\n- Drew architecture of “Migrate application from local to AWS Cloud” solution.\n- Wrote README to support readers to deploy those solutions.\n- Wrote IaC (terraform) to deploy the infrastructure and some initial services of solutions.\n- Built and verified implement steps.\n- Handled “Deploy with ECS” solution and monitoring application.\n- Modified configuration & source code of application.\n\nWe modified this application from this repository (Matias Rivera): [click here](https://github.com/matias-rivera/restobar)."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848472/portfolio/works/fcj-resbar/cover_iifo1a.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848473/portfolio/works/fcj-resbar/1_zmschl.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848473/portfolio/works/fcj-resbar/2_wxl1ow.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848467/portfolio/works/fcj-resbar/3_jn4ney.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848468/portfolio/works/fcj-resbar/4_he3v1c.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848468/portfolio/works/fcj-resbar/5_sf2ncy.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848468/portfolio/works/fcj-resbar/6_gzvsgi.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848468/portfolio/works/fcj-resbar/7_hh4ydr.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848468/portfolio/works/fcj-resbar/8_sxsdey.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848470/portfolio/works/fcj-resbar/9_w6l0a4.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1739848471/portfolio/works/fcj-resbar/10_lztiar.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Source code",
+        "value": "https://github.com/AWS-First-Cloud-Journey/aws-fcj-container-app"
+      },
+      {
+        "id": "links-02",
+        "name": "Workshop 15",
+        "value": "https://fcj-dntu.github.io/000015-deploy-app-docker/"
+      },
+      {
+        "id": "links-02",
+        "name": "Workshop 16",
+        "value": "https://fcj-dntu.github.io/000016-deploy-app-ecs/"
+      },
+      {
+        "id": "links-02",
+        "name": "Workshop 17",
+        "value": "https://fcj-dntu.github.io/000017-cicd-pipeline/"
+      }
+    ],
+    "startDate": 1728320400000,
+    "endDate": 1730307600000
+  },
+  {
+    "id": "projects-08",
     "name": "Task Manager",
     "type": "application",
     "techStacks": [
@@ -289,12 +411,12 @@
       {
         "name": "Others",
         "value": "others",
-        "data": [{ "id": "others-05" }]
+        "data": [{ "id": "others-05" }, { "id": "others-08" }]
       }
     ],
     "description": {
       "short": "A simple microservice application",
-      "long": "Task Manager helps you manage your tasks easier, faster and more convenient. You can view your tasks in **Board view** or **Table view**. With board view, you can easily **drag-and-drop** task card to update its status or modify separately information of task, it's on you!!\n\nThis application is special because this is the first time that I have applied micro-service architecture to build application, ReactJS, ExpressJS (NodeJS), MongoDB and MySQL. You can deploy it on your machine or cloud infrastructure with Docker Image."
+      "long": "Task Manager helps you manage your tasks easier, faster and more convenient. You can view your tasks in **Board view** or **Table view**. With board view, you can easily **drag-and-drop** task card to update its status or modify separately information of task, it's on you!!\n\nThis application is special because this is the first time that I have applied micro-service architecture to build application, ReactJS, ExpressJS (NodeJS), MongoDB and MySQL. You can deploy it on your machine or cloud infrastructure with Docker / K8S or Kubernetes Service.\n\nWhat I did on this project:\n\n- Built frontend application.\n- Built backend application.\n- Use Winston to built my own Logging strategy.\n- Collaborated with another colleague to make deployment strategy."
     },
     "cover": "https://res.cloudinary.com/dhqgfphiy/image/upload/v1737257911/portfolio/works/task-manager/cover_vn92qg.png",
     "images": [
@@ -309,7 +431,7 @@
     "links": [
       {
         "id": "links-01",
-        "name": "Github",
+        "name": "Source code",
         "value": "https://github.com/Code4life-Labs/task-manager-app"
       }
     ],

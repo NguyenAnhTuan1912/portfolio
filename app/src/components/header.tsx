@@ -1,6 +1,6 @@
 import React from "react";
 import { Sun, Moon, Menu } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // Import components
 import { Button } from "./ui/button";
@@ -42,6 +42,7 @@ export default function Header() {
   const rootPath = location.pathname.split("/")[1];
 
   const routesMetadata = React.useMemo(() => [...rootRoutesMetadata], []);
+  const currentRouteMetadata = getRouteMetadata(routesMetadata, rootPath)[1];
 
   React.useEffect(() => {
     const title = "Nguyen Anh Tuan | ";
@@ -72,9 +73,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 flex items-center justify-between px-3 border-b border-primary z-50 bg-background">
       <div className="flex items-center py-2">
-        <p className="font-semibold">
-          {getRouteMetadata(routesMetadata, rootPath)[1].introduction}
-        </p>
+        <Link className="text-primary" to={currentRouteMetadata.path}>
+          <p className="font-semibold">{currentRouteMetadata.introduction}</p>
+        </Link>
       </div>
       <div className="flex items-center">
         <div className="me-3 py-2">

@@ -10,9 +10,6 @@ import type { MDContentProps } from "./type";
 export default function MDContent(props: MDContentProps) {
   // const [content, setContent] = React.useState("");
 
-  // Detect change of content
-  React.useEffect(function () {}, [props.children]);
-
   if (typeof props.children !== "string") {
     return (
       <p className="text-red-700">

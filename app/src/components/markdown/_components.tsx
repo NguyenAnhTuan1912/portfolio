@@ -1,8 +1,10 @@
 import React from "react";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   oneLight,
   oneDark,
+  materialLight,
+  materialDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // Import components
@@ -77,6 +79,10 @@ function Pre({ children }: { children: React.ReactNode | string }) {
   return <>{children}</>;
 }
 
+function PlainText({ children }: { children: React.ReactNode | string }) {
+  return <span>{children}</span>;
+}
+
 function Image(props: any) {
   return (
     <div className="flex justify-center">
@@ -103,7 +109,7 @@ function Code({
   const match = /language-(\w+)/.exec(className || "");
   const lang = match![1];
   return (
-    <div className="relative w-full">
+    <div className="relative w-full [&>span]:text-sm">
       <div className="flex flex-row items-center justify-between h-10 w-full absolute top-0 px-6 ">
         <div className="flex flex-row items-center gap-x-2">
           {["#27C93F", "#FF5F56", "#FFBD2E"].map(function (color: string) {
@@ -139,8 +145,9 @@ function Code({
           borderColor: "hsl(var(--primary))",
           borderWidth: "1px",
         }}
-        children={children}
-      />
+      >
+        {children}
+      </SyntaxHighlighter>
     </div>
   );
 }
@@ -160,4 +167,5 @@ export const MDComponents: Components = {
   code: Code as any,
   br: Break,
   img: Image as any,
+  text: PlainText as any,
 };

@@ -7,9 +7,9 @@
 
 Mình sẽ chia thành nhiều bài khác nhau.
 
-**Note**: bài thực hành này mình thực hiện trên EC2 t2.medium.
+**Note**: bài thực hành này mình thực hiện trên EC2 **t2.medium**, EBS **12 GiB**.
 
-**Note**: trước khi làm được bài ví dụ này thì hãy đảm bảo bạn đã cài đặt thành công K8S Control Plane ở trong bài hướng dẫn trước đó.
+**Note**: trước khi làm được bài ví dụ này thì hãy đảm bảo bạn đã cài đặt thành công K8S Control Plane ở trong bài hướng dẫn trước đó, [xem thêm ở đây](/blogs/create-k8s-cluster-with-aws-kubeadm).
 
 ## Implementation
 
@@ -26,9 +26,11 @@ touch a-service/index.js a-service/package.json a-service/dockerfile
 touch b-service/index.js b-service/package.json b-service/dockerfile
 ```
 
-Tạo từng tiệp sau trong các thư mục tương ứng
+![1.1_okzggx](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255591/portfolio/blogs/k8s-examples-pod/1.1_okzggx.png)
 
-Tạo **a-service/index.js**
+Sau đó là thêm mã Javascript vào từng file tương ứng.
+
+Đầu tiên là file **a-service/index.js**
 
 ```js
 const express = require("express");
@@ -81,7 +83,7 @@ app.listen(HOST, PORT, () => {
 });
 ```
 
-Tạo **b-service/index.js**
+Tiếp theo là file **b-service/index.js**
 
 ```js
 const express = require("express");
@@ -136,7 +138,11 @@ app.listen(HOST, PORT, () => {
 });
 ```
 
-Tạo **package.json**
+Khi thêm xong thì kết quả sẽ trông như thế này.
+
+![1.2_kxyczd](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255591/portfolio/blogs/k8s-examples-pod/1.2_kxyczd.png)
+
+Tiếp theo, mở lần lượt các file **package.json** trong **a-service** và **b-service** để thêm các nội dung như sau
 
 ```json
 {
@@ -155,7 +161,11 @@ Tạo **package.json**
 }
 ```
 
-Sau đó trong mỗi thư mục tạo thêm 2 file dockerfile có nội dung như sau
+Kết quả
+
+![1.3_kloxln](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255591/portfolio/blogs/k8s-examples-pod/1.3_kloxln.png)
+
+Và cuối cùng là mở các **dockerfile** ở trong **a-service** và **b-service**. Sau đó thêm nội dung vào trong từng file như bên dưới.
 
 ```dockerfile
 FROM node:20.17.0-alpine3.19
@@ -171,11 +181,11 @@ RUN npm install
 CMD ["npm", "start"]
 ```
 
-Kết quả mình sẽ được thư mục project trông như thế này
+Kết quả
 
-![]()
+![1.4_y8fkah](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255591/portfolio/blogs/k8s-examples-pod/1.4_y8fkah.png)
 
-Xong rồi đó, chuẩn bị cho ví dụ đầu tiên thôi.
+Ok, như vậy thì bước chuẩn bị đã xong rồi, trong bước tiếp theo thì chúng ta sẽ tiến hành đẩy image lên trên Dockerhub. Bởi vì K8S sẽ không lấy các image ở trong local ra để dùng, mà nó sẽ đẩy các image đó từ trên Container Image Registry xuống để xài.
 
 ### Push images to Dockerhub
 
@@ -185,24 +195,51 @@ Trước tiên là bạn phải có tài khoản docker để có thể tải đ
 sudo docker login
 ```
 
-Nó sẽ hiện code lên màn hình và bạn phải vào trong trang `https://login.docker.com/activate`
+![2.1_stw5fy](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/2.1_stw5fy.png)
 
-![]()
+Nó sẽ hiện code lên màn hình và bạn phải vào trong trang `https://login.docker.com/activate`. Nhập code vào trong ô nhập.
 
-![]()
+![2.2_xber6s](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/2.2_xber6s.png)
 
-Như vậy là đã đăng nhập thành công. Bước tiếp theo là mình sẽ tạo repository mới có 2 service A và B với tên lần lượt là **a-service** và **b-service**. Lúc này thì mình sẽ có tag cho mỗi service là **<dockerhub-username>/a-service** hoặc **<dockerhub-username>/b-service**.
+Tiếp tục ấn **Confirm**.
 
-![]()
+![2.3_pxtmw7](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/2.3_pxtmw7.png)
+
+Và chúng ta sẽ nhận được thông báo thành công trên trình duyệt và trong Terminal.
+
+![2.4_ff8fpc](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255600/portfolio/blogs/k8s-examples-pod/2.4_ff8fpc.png)
+
+![2.5_pov7np](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/2.5_pov7np.png)
+
+Như vậy là đã đăng nhập thành công. Bước tiếp theo là mình sẽ tạo repository mới có 2 service A và B với tên lần lượt là **a-service** và **b-service**. Ở bước này thì bạn không cần tạo cũng được, vì khi gắn tag cho image dưới local thì khi đẩy lên, Dockerhub sẽ tự tạo repository.
 
 Ở trên máy ảo, mình sẽ tạo ra 2 images, các bạn có thể tự push lên hoặc dùng image của mình:
 
+Với **a-service**
+
 ```bash
+cd app
 sudo docker build a-service -t nguyenanhtuan19122002/a-service
-sudo docker build a-service -t nguyenanhtuan19122002/b-service
 ```
 
-![]()
+![2.6_ah3i3d](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/2.6_ah3i3d.png)
+
+Với **b-service**
+
+```bash
+cd app
+sudo docker build b-service -t nguyenanhtuan19122002/b-service
+```
+
+![2.7_mbfa1v](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255591/portfolio/blogs/k8s-examples-pod/2.7_mbfa1v.png)
+
+Kiểm tra lại xem 2 images đã build thành công hay chưa?
+
+```bash
+sudo docker images
+```
+
+![2.8_uexe31](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255600/portfolio/blogs/k8s-examples-pod/2.8_uexe31.png)
 
 Giờ thì push 2 images này lên
 
@@ -211,9 +248,11 @@ sudo docker push nguyenanhtuan19122002/a-service
 sudo docker push nguyenanhtuan19122002/b-service
 ```
 
-![]()
+![2.9_l57sfk](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255601/portfolio/blogs/k8s-examples-pod/2.9_l57sfk.png)
 
-![]()
+Kiểm tra trên Dockerhub
+
+![2.10_a7uahr](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/2.10_a7uahr.png)
 
 Đã xong, chuẩn bị tiến hành triển khai ứng dụng thôi!
 
@@ -231,22 +270,23 @@ Giờ thì mình sẽ triển khai 2 services này trên 2 pods khác nhau với
 ```bash
 kubectl run a-service --image=nguyenanhtuan19122002/a-service
 kubectl run b-service --image=nguyenanhtuan19122002/b-service
+```
+
+![3.1_dgeb6y](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255600/portfolio/blogs/k8s-examples-pod/3.1_dgeb6y.png)
+
+Kiểm tra lại
+
+```bash
 kubectl get pods
 ```
 
-![]()
+![3.2_ai36ao](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/3.2_ai36ao.png)
 
 Done vậy là 2 pods chạy thành công!!!
 
-Và có vẻ như hiện tại vẫn chưa có thể ping được tới một trong 2 pods
-
-![]()
-
-Về vấn đề này thì mình sẽ giải quyết nó trong ví dụ sau.
-
 #### Deploy with YAML (Definition File)
 
-Ở trong phần trước thì mình đã triển khai với CLI, ở phần này thì mình sẽ triển khai với YAML. Đầu tiên là mình cần phải tạo một file YAML.
+Ở trong phần trước thì mình đã triển khai với CLI, ở phần này thì mình sẽ triển khai với YAML (Definition File). Đầu tiên là mình cần phải tạo một file YAML. Trước tiên là chúng ta phải xoá các pod đã triển khai ở phần trước và tạo ra các file YAML mới.
 
 ```bash
 kubectl delete pod a-service b-service
@@ -254,35 +294,41 @@ cd app
 touch a-service-pod.yml b-service-pod.yml
 ```
 
-Tạo file yaml cho **service a**
+![3.3_uyknll](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255600/portfolio/blogs/k8s-examples-pod/3.3_uyknll.png)
 
-```bash
+Mở các file YAML mới tạo lên, sau đó là nhập các nội dung như sau vào từng file YAML.
+
+Với **a-service-pod.yml**
+
+```yml
 apiVersion: v1
 kind: Pod
 metadata:
   name: a-service
 spec:
   containers:
-  - name: a-service-app
-    image: nguyenanhtuan19122002/a-service
-    ports:
-    - containerPort: 3000
+    - name: a-service-app
+      image: nguyenanhtuan19122002/a-service
+      ports:
+        - containerPort: 3000
 ```
 
-Tạo file yaml cho **service b**
+Với **b-service-pod.yml**
 
-```bash
+```yml
 apiVersion: v1
 kind: Pod
 metadata:
   name: b-service
 spec:
   containers:
-  - name: b-service-app
-    image: nguyenanhtuan19122002/b-service
-    ports:
-    - containerPort: 5000
+    - name: b-service-app
+      image: nguyenanhtuan19122002/b-service
+      ports:
+        - containerPort: 5000
 ```
+
+![3.4_apzep2](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255593/portfolio/blogs/k8s-examples-pod/3.4_apzep2.png)
 
 Sau đó thì mình sẽ chạy lệnh để tạo ra các pods dựa theo 2 files yaml này.
 
@@ -291,10 +337,10 @@ kubectl create -f a-service-pod.yml
 kubectl create -f b-service-pod.yml
 ```
 
-![]()
+![3.5_ptuebp](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255592/portfolio/blogs/k8s-examples-pod/3.5_ptuebp.png)
 
-Ok, đã triển khai 2 services thành công. Trong các ví dụ sau mình sẽ test thử 2 services này.
+Kiểm tra lại kết quả với `kubectl get pods`
 
-![]()
+![3.6_roxpdc](http://res.cloudinary.com/dhqgfphiy/image/upload/v1739255600/portfolio/blogs/k8s-examples-pod/3.6_roxpdc.png)
 
-Vậy là đã xong, chúc các bạn thành công.
+Như vậy thì chúng ta vừa mới làm xong ví dụ triển khai ứng dụng với Pod theo 2 cách là dùng trực tiếp với `kubectl` và dùng file YAML với `kubectl`. Hẹn gặp lại ở ví dụ sau!

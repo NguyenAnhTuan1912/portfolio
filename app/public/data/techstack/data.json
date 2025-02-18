@@ -171,6 +171,11 @@
         "id": "others-09",
         "value": "firebase",
         "name": "Firebase"
+      },
+      {
+        "id": "others-10",
+        "value": "amazon-ecs",
+        "name": "Amazon ECS"
       }
     ]
   }
