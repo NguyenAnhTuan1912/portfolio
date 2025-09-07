@@ -437,5 +437,128 @@
     ],
     "startDate": 1729443600000,
     "endDate": 1737046800000
+  },
+  {
+    "id": "projects-09",
+    "name": "VP Bank Hackathon - Challenge #23: Smart Data Contract Platform",
+    "type": "application",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-02" }, { "id": "lang-04" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-03" }, { "id": "lnf-10" }]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-05" }]
+      },
+      {
+        "name": "Cloud",
+        "value": "cloud",
+        "data": [{ "id": "cloud-01" }]
+      }
+    ],
+    "description": {
+      "short": "Smart Data Contract platform powered by GenAI",
+      "long": "This is a team project. Smart Data Contract platform helps data consumers describe their kind of data with GenAI and GenAI will help them to create a draft data contact. Beside, data provider can control by approve or reject these draft data contract from data consumers. My responsible in this project:\n\n\n- Participated in solution design.\n- Implemented the design by building backend application.\n- Designed and assigned tasks for user application development."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215653/portfolio/works/vp-bank-hackathon-2025/cover_klisie.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215652/portfolio/works/vp-bank-hackathon-2025/img-1_sbgew3.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215774/portfolio/works/vp-bank-hackathon-2025/img-2_zxv34a.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215772/portfolio/works/vp-bank-hackathon-2025/img-3_st546f.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215771/portfolio/works/vp-bank-hackathon-2025/img-4_us3ikc.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215772/portfolio/works/vp-bank-hackathon-2025/img-5_t5czu7.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215773/portfolio/works/vp-bank-hackathon-2025/img-6_eb9zv6.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215772/portfolio/works/vp-bank-hackathon-2025/img-7_dmzcu0.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215774/portfolio/works/vp-bank-hackathon-2025/img-8_mi3dt9.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757215775/portfolio/works/vp-bank-hackathon-2025/img-9_qteajd.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Github Organization",
+        "value": "https://github.com/team-vsl"
+      },
+      {
+        "id": "links-02",
+        "name": "Frontend Source",
+        "value": "https://github.com/team-vsl/smart-datacontract-frontend"
+      },
+      {
+        "id": "links-03",
+        "name": "Backend Source",
+        "value": "https://github.com/team-vsl/smart-datacontract-backend"
+      }
+    ],
+    "startDate": 1748710800000,
+    "endDate": 1756573200000
+  },
+  {
+    "id": "projects-10",
+    "name": "Workshop - Authentication & Authorization with Cognito",
+    "type": "workshop",
+    "techStacks": [
+      {
+        "name": "Languages",
+        "value": "languages",
+        "data": [{ "id": "lang-02" }, { "id": "lang-04" }]
+      },
+      {
+        "name": "Libraries / Frameworks",
+        "value": "lnf",
+        "data": [{ "id": "lnf-03" }, { "id": "lnf-10" }]
+      },
+      {
+        "name": "Databases",
+        "value": "db",
+        "data": [{ "id": "db-05" }]
+      },
+      {
+        "name": "Cloud",
+        "value": "cloud",
+        "data": [{ "id": "cloud-01" }]
+      }
+    ],
+    "description": {
+      "short": "Implement authentication and authorization with Amazon Cognito",
+      "long": "This workshop is very special, because in this workshop, doers have to code and configure aws services (dynamodb, iam, ec2, cognito, ...). Implementors will learn more about dynamodb, cognito and how to write an expansible, maintainable codebase.\n\nThis is my second workshop in AWS First Cloud Journey program, I hope you enjoy it and gain something in this workshop."
+    },
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216877/portfolio/works/simple-auth-cognito-workshop/cover_c9tcop.png",
+    "images": [
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216876/portfolio/works/simple-auth-cognito-workshop/img-1_r8pm1a.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216877/portfolio/works/simple-auth-cognito-workshop/img-2_vy0sna.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216877/portfolio/works/simple-auth-cognito-workshop/img-3_h15cpt.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216877/portfolio/works/simple-auth-cognito-workshop/img-4_fxaffc.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216878/portfolio/works/simple-auth-cognito-workshop/img-5_ymprhh.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216880/portfolio/works/simple-auth-cognito-workshop/img-6_qyz2tj.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216881/portfolio/works/simple-auth-cognito-workshop/img-7_mzycsy.png",
+      "http://res.cloudinary.com/dhqgfphiy/image/upload/v1757216883/portfolio/works/simple-auth-cognito-workshop/img-8_hr27o1.png"
+    ],
+    "links": [
+      {
+        "id": "links-01",
+        "name": "Source content",
+        "value": "https://github.com/FCJ-DNTU/cognito-workshop"
+      },
+      {
+        "id": "links-02",
+        "name": "Source code",
+        "value": "https://github.com/FCJ-DNTU/cognito-example-projects"
+      },
+      {
+        "id": "links-03",
+        "name": "Workshop",
+        "value": "https://fcj-dntu.github.io/cognito-workshop"
+      }
+    ],
+    "startDate": 1755190800000,
+    "endDate": 1757091600000
   }
 ]

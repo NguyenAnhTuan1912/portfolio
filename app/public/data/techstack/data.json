@@ -88,6 +88,11 @@
         "id": "lnf-09",
         "value": "aspnet",
         "name": "ASP.NET"
+      },
+      {
+        "id": "lnf-10",
+        "value": "fastapi",
+        "name": "FastAPI"
       }
     ]
   },
@@ -109,6 +114,16 @@
         "id": "db-03",
         "value": "mysql",
         "name": "MySQL"
+      },
+      {
+        "id": "db-04",
+        "value": "postgresql",
+        "name": "PostgreSQL"
+      },
+      {
+        "id": "db-05",
+        "value": "dynamodb",
+        "name": "Amazon DynamoDB"
       }
     ]
   },
@@ -174,7 +189,7 @@
       },
       {
         "id": "others-10",
-        "value": "amazon-ecs",
+        "value": "ecs",
         "name": "Amazon ECS"
       }
     ]
