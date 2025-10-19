@@ -1,8 +1,8 @@
-import React from "react";
+import { createElement } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   oneLight,
-  oneDark
+  oneDark,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // Import components
@@ -13,6 +13,7 @@ import { useSettingsState } from "src/states/settings";
 
 // Import types
 import type { Components } from "react-markdown";
+import type { ReactNode } from "react";
 
 type TextHeaderType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 type ListType = "ul" | "ol";
@@ -28,12 +29,8 @@ const getHeaderComponent = (function () {
   };
 
   return function (textHeaderType: TextHeaderType): any {
-    return function Header({
-      children,
-    }: {
-      children: React.ReactNode | string;
-    }) {
-      return React.createElement(textHeaderType, {
+    return function Header({ children }: { children: ReactNode | string }) {
+      return createElement(textHeaderType, {
         children,
         className: $$$[textHeaderType],
       });
@@ -48,12 +45,8 @@ const getListComponent = (function () {
   };
 
   return function (textHeaderType: ListType): any {
-    return function Header({
-      children,
-    }: {
-      children: React.ReactNode | string;
-    }) {
-      return React.createElement(textHeaderType, {
+    return function Header({ children }: { children: ReactNode | string }) {
+      return createElement(textHeaderType, {
         children,
         className: $$$[textHeaderType],
       });
@@ -61,7 +54,7 @@ const getListComponent = (function () {
   };
 })();
 
-function List({ children }: { children: React.ReactNode | string }) {
+function List({ children }: { children: ReactNode | string }) {
   return <li className="[&>p]:inline">{children}</li>;
 }
 
@@ -86,6 +79,14 @@ function Image(props: any) {
     <div className="flex justify-center">
       <img className="" src={props.src} alt={props.alt} />
     </div>
+  );
+}
+
+function Quote({ children }: { children: React.ReactNode | string }) {
+  return (
+    <blockquote className="bg-secondary rounded-lg py-2 px-4 border mb-4 [&>p]:mb-0 [&>p]:italic [&>p]:text-foreground">
+      {children}
+    </blockquote>
   );
 }
 
@@ -131,7 +132,6 @@ function Code({
       </div>
 
       <SyntaxHighlighter
-        showLineNumbers
         language={lang}
         style={theme == "light" ? oneLight : oneDark}
         customStyle={{
@@ -140,7 +140,6 @@ function Code({
           marginBottom: "1rem",
           padding: "1.5rem",
           paddingTop: "4rem",
-          borderColor: "hsl(var(--primary))",
           borderWidth: "1px",
         }}
       >
@@ -166,4 +165,5 @@ export const MDComponents: Components = {
   br: Break,
   img: Image as any,
   text: PlainText as any,
+  blockquote: Quote as any,
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useMemo } from "react";
 import { Sun, Moon, Menu } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -41,10 +41,10 @@ export default function Header() {
 
   const rootPath = location.pathname.split("/")[1];
 
-  const routesMetadata = React.useMemo(() => [...rootRoutesMetadata], []);
+  const routesMetadata = useMemo(() => [...rootRoutesMetadata], []);
   const currentRouteMetadata = getRouteMetadata(routesMetadata, rootPath)[1];
 
-  React.useEffect(() => {
+  useEffect(() => {
     const title = "Nguyen Anh Tuan | ";
     // Change title
     switch (rootPath) {

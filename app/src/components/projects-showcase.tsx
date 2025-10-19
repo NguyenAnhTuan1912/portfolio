@@ -1,4 +1,4 @@
-import React from "react";
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { MoveRight } from "lucide-react";
 
@@ -83,7 +83,7 @@ type ProjectsShowcaseProps = {
 export default function ProjectsShowcase(props: ProjectsShowcaseProps) {
   const { projects } = useProjectsState();
 
-  const Projects = React.useMemo(() => {
+  const Projects = useMemo(() => {
     const result: Array<any> = [];
 
     if (!projects) return <p className="text-center">Loading...</p>;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 type CopyCodeButtonProps = {
@@ -6,9 +6,9 @@ type CopyCodeButtonProps = {
 };
 
 export default function CopyCodeButton(props: CopyCodeButtonProps) {
-  const [isCopy, setIsCopy] = React.useState(false);
+  const [isCopy, setIsCopy] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let timeoutId: any;
     if (isCopy) {
       timeoutId = setTimeout(() => {
@@ -19,6 +19,7 @@ export default function CopyCodeButton(props: CopyCodeButtonProps) {
       clearTimeout(timeoutId);
     };
   }, [isCopy]);
+
   return (
     <CopyToClipboard text={props.text} onCopy={() => setIsCopy(true)}>
       {isCopy ? (

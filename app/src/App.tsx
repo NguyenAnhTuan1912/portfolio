@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 // Import objects
 import { ProjectUtils } from "./objects/projects/utils";
@@ -24,7 +24,7 @@ function App() {
   const { setContactStacks } = useContactsState();
 
   // Fecth data
-  React.useEffect(() => {
+  useEffect(() => {
     console.log("Request data");
     const getTechStacksPromise = fetch("/data/techstack/data.json").then(
       (res) => res.json()
@@ -60,7 +60,7 @@ function App() {
     });
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");

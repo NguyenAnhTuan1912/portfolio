@@ -1,4 +1,4 @@
-import React from "react";
+import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Import objects
@@ -67,7 +67,7 @@ type BlogsShowcaseProps = {
 export function BlogsShowcase(props: BlogsShowcaseProps) {
   const { blogs } = useBlogsState();
 
-  const Blogs = React.useMemo(() => {
+  const Blogs = useMemo(() => {
     const result: Array<any> = [];
 
     if (!blogs) return <p className="text-center">Loading...</p>;

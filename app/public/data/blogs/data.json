@@ -63,5 +63,18 @@
     "readtime": 0,
     "updatedAt": 1735491600000,
     "createdAt": 1735491600000
+  },
+  {
+    "id": "blogs-06",
+    "name": "Basic Monitoring with Grafana & Prometheus",
+    "value": "basic-monitoring-with-grafana-n-prometheus",
+    "topics": ["monitoring", "grafana", "prometheus"],
+    "cover": "https://cdn.hashnode.com/res/hashnode/image/upload/v1663832874403/TX2j0uMyv.png",
+    "contentURL": "",
+    "description": "Quan sát & giám sát hệ thống cơ bản với Grafana và Prometheus",
+    "language": "vi",
+    "readtime": 0,
+    "updatedAt": 1760836071142,
+    "createdAt": 1760836071142
   }
 ]

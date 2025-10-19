@@ -1,3 +1,3 @@
-import React from "react";
+import type { PropsWithChildren } from "react";
 
-export type MDContentProps = React.PropsWithChildren;
+export type MDContentProps = PropsWithChildren;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useMemo } from "react";
 import { ArrowLeft } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -19,15 +19,15 @@ export default function BlogDetailsPage() {
   const navigate = useNavigate();
   const { blogs, content, setBlogContent } = useBlogsState();
 
-  const data = React.useMemo(() => {
+  const data = useMemo(() => {
     return blogs?.find((blog) => blog.value === value)!;
   }, [value, blogs?.length]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch(`/blogs/${value}.md`)
       .then((r) => r.text())
       .then((content) => {
