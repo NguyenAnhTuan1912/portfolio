@@ -278,13 +278,13 @@ Trước khi test kết quả, thì mình sẽ giải thích từng cái Panel.
 
 Ở panel **HTTP Request Latency (P90)** thì cho chúng ta thông tin thú vị hơn. Biểu đồ sẽ cho chúng ta biết được tốc độ biến động của request latency => cho chúng ta biết là ứng dụng hay hệ thống có đang hoạt động ổn hay không, nếu như biểu đồ lên càng cao, thì hệ thống của mình đang càng chậm. Tại sao lại có thể khẳng định như vậy? Để có thể nắm được phần này thì mình sẽ cần phải nắm được phân vị, phân vị nghĩa là các phần dữ liệu được chia ra và quan sát bằng nhau. Ngoài ra thì chúng ta còn có **histogram**, thì loại metric này nó có nhiệm vụ là phân bổ dữ liệu thành từng phần (trong prometheus là số đếm - counter), gọi là bucket, nghĩa là metric **_bucket** mà mình đã nói trước đó sẽ liên quan tới phân vị (theo ý hiểu của mình, nếu sai thì nhắc mình nhé).
 
-Điều này có nghĩa là tại một thời điểm T, khi có dữ liệu đi tới, thì nó có thể được phân loại vào trong 1 hoặc nhiều bucket. Ví dụ như mình có 2 buckets là `<= 0.005` và `<= 0.1`, khi có request mà latency là `0.004` thì nó sẽ rơi vào cả 2 buckets này => nếu như có nhiều buckets được gán nhãn như thế và có giá trị latency lớn hơn thì nó cũng sẽ rơi vào các bucket đó. Khi có request mà latency của nó là `0.05` thì nó sẽ chỉ rơi vào bucket `<= 0.1` và các bucket sau, không rơi vào bucket `<= 0.005`. Từ đây chúng ta sẽ dễ dàng phân hoá và tính toàn hơn (nhờ vào cách phân bổ của histogram), ví dụ ở thời điểm hiện tại, mình quan sát thấy là bucket `<= 0.005` có số đếm gần bằng bucket `<= 0.1` thì chúng ta kết luận là số các request có latency dưới 0.005 là cực nhiều, nghĩa là hệ thống của mình đang hoạt động tốt, còn con số khác biệt giữa bucket `<= 0.005` và bucket `<= 0.1` thì có nghĩa là nó là các reqeust mà có latency rơi vào từ `(0.005, 0.1]`. Giờ thì chúng ta sẽ dùng bách phân vị, chia dữ liệu thành 100 phần bằng nhau và chúng ta sẽ lấy phân vị thứ 90 (Percentile 90 - P90), nghĩa là dữ liệu tại điểm đó sẽ đảm bảo 90% số còn lại nhỏ hơn nó và 10% sẽ lớn hơn nó => Điều này có nghĩa là chúng ta sẽ mong muốn quan sát số các request mà tại đó latency của nó nhỏ hơn giá trị P90 => Vì thế mà số càng nhỏ thì sẽ có tới 90% số request có latency nhỏ hơn số đó.
+Điều này có nghĩa là tại một thời điểm T, khi có dữ liệu đi tới, thì nó có thể được phân loại vào trong 1 hoặc nhiều bucket. Ví dụ như mình có 2 buckets là `<= 0.005` và `<= 0.1`, khi có request mà latency là `0.004` thì nó sẽ rơi vào cả 2 buckets này => nếu như có nhiều buckets được gán nhãn như thế và có giá trị latency lớn hơn thì nó cũng sẽ rơi vào các bucket đó. Khi có request mà latency của nó là `0.05` thì nó sẽ chỉ rơi vào bucket `<= 0.1` và các bucket sau, không rơi vào bucket `<= 0.005`. Từ đây chúng ta sẽ dễ dàng phân hoá và tính toán hơn (nhờ vào cách phân bổ của histogram), ví dụ ở thời điểm hiện tại, mình quan sát thấy là bucket `<= 0.005` có số đếm gần bằng bucket `<= 0.1` thì chúng ta kết luận là số các request có latency dưới 0.005 là cực nhiều, nghĩa là hệ thống của mình đang hoạt động tốt, còn con số khác biệt giữa bucket `<= 0.005` và bucket `<= 0.1` thì có nghĩa là nó là các request mà có latency rơi vào từ `(0.005, 0.1]`. Giờ thì chúng ta sẽ dùng bách phân vị, chia dữ liệu thành 100 phần bằng nhau và chúng ta sẽ lấy phân vị thứ 90 (Percentile 90 - P90), nghĩa là dữ liệu tại điểm đó sẽ đảm bảo 90% số còn lại nhỏ hơn nó và 10% sẽ lớn hơn nó => Điều này có nghĩa là chúng ta sẽ mong muốn quan sát số các request mà tại đó latency của nó nhỏ hơn giá trị P90 => Vì thế mà số càng nhỏ, thì cho chúng ta biết hệ thống đang có nhiều request ở mức latency thấp, cũng có nghĩa là hệ thống đang hoạt động tốt.
 
 Tới đây thì mình nghĩa là bạn đã có thể hiểu chúng ta dùng phân vị thứ 90 rồi, nhưng vì để quan sát được biến động của counter, thì chúng ta cần phải dùng hàm `rate` để làm việc đó, và dùng `sum` (group theo label **le** của metric **_bucket**) để có thể tính tổng toàn bộ dữ liệu được thu từ hệ thống, chính vì vậy mà chúng ta có truy vấn như trong hình.
 
 ![review-2](/images/basic-monitoring-with-grafana-n-prometheus/review-2.png)
 
-Các panel còn lại thì mình sẽ review nhanh, vì nó cũng đơn giản, bạn có thể coi query khi edit từng cái panel một. Trong đó các panel Total sẽ là các panel tính tổng request đi tới, số các request thành công và số các request thất bại. Còn các Rate panel sẽ cho chúng ta thấy sự biến động thay đổi trong các panel total tương ứng. 
+Các panel còn lại thì mình sẽ review nhanh, vì nó cũng đơn giản, bạn có thể coi query khi edit từng cái panel một. Trong đó các panel **Total** sẽ là các panel tính tổng request đi tới, số các request thành công và số các request thất bại. Còn các **Rate** panel sẽ cho chúng ta thấy sự biến động thay đổi trong các panel total tương ứng. 
 
 ![review-3](/images/basic-monitoring-with-grafana-n-prometheus/review-3.png)
 
@@ -298,13 +298,13 @@ Sau đó thì vào tab **View Results Tree** hoặc **View Results in Table** đ
 
 ![test-result-2](/images/basic-monitoring-with-grafana-n-prometheus/test-result-2.png)
 
-Chạy rồi ha, giờ thì mình trở lại Dashboard để quan sát kết quả.
+Chạy rồi ha, giờ thì mình trở lại Dashboard để quan sát kết quả. Chú ý là ở đây bạn sẽ thấy có lỗi trả về, thì thực chất là các endpoint mà mình đã sắp xếp nó để trả về một lỗi random, để kiểm tra xem khả năng thu metric lỗi từ Prometheus Client thôi.
 
 ![test-result-3](/images/basic-monitoring-with-grafana-n-prometheus/test-result-3.png)
 
 ![test-result-4](/images/basic-monitoring-with-grafana-n-prometheus/test-result-4.png)
 
-Tới đây thì mình có thể đánh giá như sau, từ lúc mình mở gải lập là lúc 10:38 phút thì hệ thống hoạt động rất ổn, bằng chừng là trong panel **HTTP Request Latency (P90)** cho mình thấy là đồ thị của nó đang đi ngang, với value dưới 0.005 (5ms). Bên cạnh đó thì số requests lại còn tăng cao nữa => số requests tăng cao trong 1 phút mà tốc độ vẫn đảm bảo thì hệ thống đang hoạt động quá ổn.
+Tới đây thì mình có thể đánh giá như sau, từ lúc mình mở gải lập là lúc 10:38 phút thì hệ thống hoạt động rất ổn, bằng chứng là trong panel **HTTP Request Latency (P90)** cho mình thấy là đồ thị của nó đang đi ngang, với value dưới 0.005 (5ms). Bên cạnh đó thì số requests lại còn tăng cao nữa => số requests tăng cao trong 1 phút mà tốc độ vẫn đảm bảo thì hệ thống đang hoạt động quá ổn.
 
 Nhưng vẫn có một số lỗi diễn ra khi counter đã đếm được và cho mình thấy được sự biến động của các request lỗi luôn.
 
@@ -314,7 +314,7 @@ Panel **HTTP Request Latency (P90)** thì vẫn lên xuống và đi ngang một
 
 ![test-result-5](/images/basic-monitoring-with-grafana-n-prometheus/test-result-5.png)
 
-Nhưng với các panel Total và panel Rate thì có hình dạng đặc biệt hơn. Với panel Total thì bạn có thể thấy đồ thị của chúng đi lên, xong sau đó là đi ngang; còn panel Rate thì đồ thị của chúng đi lên nhưng về sau thì lại đi xuống => như vậy các tính chất mà mình nói đã được chứng minh.
+Nhưng với các panel **Total** và panel **Rate** thì có hình dạng đặc biệt hơn. Với panel **Total** thì bạn có thể thấy đồ thị của chúng đi lên, xong sau đó là đi ngang; còn panel **Rate** thì đồ thị của chúng đi lên nhưng về sau thì lại đi xuống => như vậy các tính chất mà mình nói đã được chứng minh.
 
 ![test-result-6](/images/basic-monitoring-with-grafana-n-prometheus/test-result-6.png)
 
@@ -325,6 +325,8 @@ Bạn có thể chạy lại giả lập và quan sát thêm để có thể th�
 Vậy thì Prometheus làm thế nào để có thể thu hoạch được metrics? Bạn có thể nhìn vào sơ đồ sau:
 
 ![prometheues-workflow](/images/basic-monitoring-with-grafana-n-prometheus/prometheues-workflow.png)
+
+Tóm lại đơn giản như sau: mình sẽ cần có Prometheus để lưu các metrics theo dạng time series. Cùng với đó là Prometheus Client trong mỗi Application để nó có thể thực hiện collect các metrics và để cho Prometheus pull về. Sau đó thì chúng ta có thể thực hiện việc đồ thị hoá các thông số này với Grafana.
 
 Trong mã nguồn ứng dụng, ở file `src/runtimes/express/middlewares/collect-request.ts` thì bạn có thể thấy được code của nó như sau:
 
