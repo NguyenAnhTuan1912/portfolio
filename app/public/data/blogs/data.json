@@ -76,5 +76,23 @@
     "readtime": 0,
     "updatedAt": 1760836071142,
     "createdAt": 1760836071142
+  },
+  {
+    "id": "blogs-07",
+    "name": "Message Driven Pattern React App",
+    "value": "message-driven-pattern-react-app",
+    "topics": [
+      "observer-pattern",
+      "message-driven-pattern",
+      "react",
+      "frontend"
+    ],
+    "cover": "http://res.cloudinary.com/dhqgfphiy/image/upload/v1771416130/portfolio/blogs/message-driven-pattern-react-app/cover_yroibv.png",
+    "contentURL": "",
+    "description": "Ví dụ về áp dụng observer pattern với ứng dụng react",
+    "language": "vi",
+    "readtime": 0,
+    "updatedAt": 1771372929805,
+    "createdAt": 1771372929805
   }
 ]
